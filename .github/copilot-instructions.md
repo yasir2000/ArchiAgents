@@ -80,8 +80,55 @@ Reference `Cross-Cutting-Concerns/Governance-Frameworks.md` for:
 ### Compliance Standards
 - **TOGAF 10** - Architecture Development Method compliance
 - **ArchiMate 3.2** - Modeling language standards
-- **Saudi NORA** - National architecture requirements
+- **Saudi NORA** - National architecture requirements (see detailed section below)
 - **ISO 27001, SOC 2, GDPR, PCI DSS** - Security and privacy standards
+
+## Saudi NORA-Specific Requirements
+
+### Vision 2030 Digital Government Targets
+- 90% of government services digital by 2030
+- 80% citizen satisfaction with digital services
+- 100% government entities on unified platform
+- 95% automated government processes
+- Top 5 global ranking in digital government maturity
+
+### Mandatory Compliance Patterns
+
+#### Arabic-First Design Requirements
+- All interfaces must prioritize Arabic language (RTL design)
+- Arabic natural language processing for document handling
+- Cultural considerations in UX/UI design patterns
+- WCAG 2.1 AA + Saudi accessibility standards compliance
+
+#### Data Sovereignty & PDPL Compliance
+- **Data Localization**: Personal data must be stored within Saudi Arabia
+- **Consent Management**: Explicit consent for all personal data collection
+- **Data Minimization**: Collect only necessary data for specified purposes
+- **Breach Notification**: 72-hour reporting requirement to authorities
+- **Individual Rights**: Access, correction, deletion, and portability rights
+
+#### Government Platform Integration
+- **Absher Platform**: Integration with unified government services
+- **National Single Sign-On (NSSO)**: Mandatory for government applications
+- **DGA API Standards**: Compliance with Digital Government Authority APIs
+- **Government Service Bus**: Connectivity for cross-entity communication
+
+### Performance & Service Standards
+- Response Time: <3 seconds for simple transactions
+- Availability: 99.9% uptime for citizen services
+- Mobile-First: All services must be mobile-responsive
+- Multi-Modal: Support for web, mobile, and emerging channels
+
+### National Cybersecurity Framework
+- Essential Cybersecurity Controls (ECC) implementation
+- National Cybersecurity Authority (NCA) compliance
+- Threat intelligence sharing with government entities
+- Incident response coordination with national CERT
+
+### Documentation Requirements
+Reference `NORA-Compliance/` directory for:
+- `Saudi-NORA-Framework-Implementation-Guide.md` - Detailed implementation patterns
+- `NORA-Compliance-Assessment-Report.md` - Current compliance status and gaps
 
 ## Working with This Codebase
 
@@ -91,12 +138,23 @@ Reference `Cross-Cutting-Concerns/Governance-Frameworks.md` for:
 3. Include required governance sections and compliance mappings
 4. Add Mermaid diagrams using standardized CSS classes
 5. Update parent README files with navigation links
+6. **NORA Compliance**: Include Saudi DGA standards alignment section
+7. **Arabic Language**: Ensure Arabic language considerations are documented
 
 ### When Modifying Architecture Models
 1. Maintain ArchiMate 3.2 layer consistency
 2. Ensure cross-layer traceability and relationships
 3. Update both current-state and target-state models
 4. Document architecture decisions and rationale
+5. **NORA Assessment**: Evaluate against Saudi government standards
+6. **Data Sovereignty**: Verify data localization requirements compliance
+
+### Saudi NORA Working Patterns
+- Include Vision 2030 alignment in strategic documents
+- Document Arabic-first design decisions in UX/UI specifications
+- Map compliance levels (1-4) for each NORA domain in assessments
+- Reference DGA standards in all government-facing architecture decisions
+- Include cybersecurity controls mapping to NCA framework
 
 ### Integration Points
 - All integration patterns documented in `Cross-Cutting-Concerns/Integration-Patterns.md`
