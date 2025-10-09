@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Archi JUnit Test Support
+Bundle-SymbolicName: com.archimatetool.testsupport
+Bundle-Version: 4.0.0
+Bundle-Vendor: Archi
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Eclipse-BundleShape: dir
+Export-Package: com.archimatetool.tests
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.mockito.mockito-core;visibility:=reexport,
+ junit-jupiter-api;visibility:=reexport,
+ junit-jupiter-params;visibility:=reexport,
+ junit-platform-suite-api;visibility:=reexport
+Bundle-ClassPath: .
+Automatic-Module-Name: com.archimatetool.testsupport

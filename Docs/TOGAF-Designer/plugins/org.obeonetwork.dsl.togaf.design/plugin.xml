@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+ Copyright (c) 2011-2012 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+<plugin>
+	<extension
+			point="org.eclipse.sirius.componentization">
+	<component
+			class="org.obeonetwork.dsl.togaf.design.Activator" id="fr.obeo.dsl.togaf.ea.design" name="ea">
+	</component>
+  </extension>
+  <extension
+        id="OpenDataCatalogs"
+        name="OpenDataCatalogs"
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.obeonetwork.dsl.togaf.ui.actions.OpenDataArchitectureCatalogsAction"
+           id="org.obeonetwork.dsl.togaf.ui.actions.OpenDataCatalogsActionID">
+     </javaActions>
+     <javaActions
+           actionClass="org.obeonetwork.dsl.togaf.ui.actions.OpenBusinessArchitectureCatalogsAction"
+           id="org.obeonetwork.dsl.togaf.ui.actions.OpenBusinessArchitectureCatalogsActionID">
+     </javaActions>
+      <javaActions
+           actionClass="org.obeonetwork.dsl.togaf.ui.actions.OpenWizardToNavigateAction"
+           id="org.obeonetwork.dsl.togaf.ui.actions.OpenWizardToNavigateActionID">
+     </javaActions>
+      <javaActions
+            actionClass="org.obeonetwork.dsl.togaf.ui.actions.OpenApplicationArchitectureCatalogsAction"
+            id="org.obeonetwork.dsl.togaf.ui.actions.OpenApplicationCatalogsActionID">
+      </javaActions>
+      <javaActions
+            actionClass="org.obeonetwork.dsl.togaf.ui.actions.OpenTechnologyArchitectureCatalogsAction"
+            id="org.obeonetwork.dsl.togaf.ui.actions.OpenTechnologyCatalogsActionID">
+      </javaActions>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="org.obeonetwork.dsl.togaf.design.category"
+           name="%togafDesignerCategory"
+           parentCategory="org.eclipse.sirius.category">
+     </category>
+     <wizard
+           category="org.eclipse.sirius.category/org.obeonetwork.dsl.togaf.design.category"
+           class="org.obeonetwork.dsl.togaf.ui.wizards.newmodel.TogafModelWizard"
+           icon="img/ContentfwkModelFile.gif"
+           id="org.obeonetwork.dsl.togaf.design.model.wizard"
+           name="%togafModelWizard">
+     </wizard>
+     <wizard
+           category="org.eclipse.sirius.category/org.obeonetwork.dsl.togaf.design.category"
+           class="org.obeonetwork.dsl.togaf.ui.wizards.newmodel.TogafProjectWizard"
+           finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+           icon="img/ContentfwkModelFile.gif"
+           id="org.obeonetwork.dsl.togaf.design.project.wizard"
+           name="%togafProjectWizard"
+           project="true">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
+        <newWizardShortcut
+              id="org.obeonetwork.dsl.togaf.design.model.wizard">
+        </newWizardShortcut>
+        <newWizardShortcut
+              id="org.obeonetwork.dsl.togaf.design.project.wizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
+  </extension>
+</plugin>
