@@ -1,0 +1,261 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Node.js / React / Vite
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend Build Output
+web_app/frontend/dist/
+web_app/frontend/dist-ssr/
+web_app/frontend/.vite/
+web_app/frontend/.next/
+web_app/frontend/out/
+web_app/frontend/build/
+
+# Frontend Environment
+web_app/frontend/.env
+web_app/frontend/.env.local
+web_app/frontend/.env.development.local
+web_app/frontend/.env.test.local
+web_app/frontend/.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+web_app/backend/archigents.db
+web_app/backend/*.db
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# IDE
+*.sublime-project
+*.sublime-workspace
+
+# Enterprise Architect
+*.ldb
+*.eapx
+
+# ArchiMate Tool Files
+*.archimate.bak
+*.archimate~
+
+# Sparx EA
+*.qea
+*.qea.ldb
+
+# Documentation Build
+docs/_build/
+docs/.doctrees/
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large Files (LFS if needed)
+*.psd
+*.ai
+*.sketch
+
+# API Keys and Secrets
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+**/secrets/
+**/credentials/
+
+# AI Model Cache
+.cache/
+*.pkl
+*.pickle
+
+# Test Coverage
+coverage/
+.coverage.*
+
+# Generated Files
+generated/
+output/
+exports/
+
+# Local Configuration
+local_settings.py
+local_config.py
+
+# Package Lock Files (keep yarn.lock or package-lock.json based on preference)
+# Uncomment the one you DON'T use:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Profiling
+*.prof
+*.lprof
+
+# Security
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+
+# Compiled Source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives (additional)
+*.jar
+*.war
+*.ear
+
+# Java (if any Java components)
+target/
+*.class
+.gradle/
+gradle/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Terraform (if using IaC)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Cloud Provider CLI
+.aws/
+.azure/
+.gcloud/
+
+# Misc
+*.orig
+.sass-cache/
+connect.lock
+typings/

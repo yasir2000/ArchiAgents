@@ -14,8 +14,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import or_, and_
 
 from web_app.backend.models import database, schemas
-from model_generation.engine import ModelGenerationEngine, ModelType as EngineModelType
-from model_generation.formats import (
+from togaf_framework.model_generation.engine import ModelGenerationEngine, ModelType as EngineModelType
+from togaf_framework.model_generation.formats import (
     TextExporter, MermaidExporter, KrokiExporter,
     ArchiExporter, GoJSExporter, EnterpriseArchitectExporter
 )

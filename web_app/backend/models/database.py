@@ -84,7 +84,7 @@ class Project(Base):
     owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     togaf_phase = Column(String(50))  # Phase A-H
     status = Column(String(50), default="active")
-    metadata = Column(JSON)  # Additional project metadata
+    project_metadata = Column(JSON)  # Additional project metadata (renamed from metadata to avoid SQLAlchemy conflict)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
@@ -124,7 +124,7 @@ class ArchitectureModel(Base):
     # Model content
     elements = Column(JSON, nullable=False)  # Model elements (nodes)
     relationships = Column(JSON, nullable=False)  # Relationships (edges)
-    metadata = Column(JSON)  # Additional metadata
+    model_metadata = Column(JSON)  # Additional model metadata (renamed from metadata to avoid SQLAlchemy conflict)
     
     # Versioning
     version = Column(String(50), default="1.0.0")

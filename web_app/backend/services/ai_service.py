@@ -17,8 +17,8 @@ from web_app.backend.models import database, schemas
 from web_app.backend.services import model_service
 
 # Import existing model generation system
-from model_generation.engine import ModelGenerationEngine, ModelType as EngineModelType, ArchitectureLayer
-from model_generation.ai_modeler import AIModelingAgent
+from togaf_framework.model_generation.engine import ModelGenerationEngine, ModelType as EngineModelType, ArchitectureLayer
+from togaf_framework.model_generation.ai_modeler import AIModelingAgent
 
 
 # Initialize AI components
@@ -28,13 +28,13 @@ ai_agent = AIModelingAgent()
 
 # Map web schema types to engine types
 MODEL_TYPE_MAPPING = {
-    schemas.ModelType.ARCHIMATE_STRATEGY: (EngineModelType.ARCHIMATE, ArchitectureLayer.STRATEGY),
-    schemas.ModelType.ARCHIMATE_BUSINESS: (EngineModelType.ARCHIMATE, ArchitectureLayer.BUSINESS),
-    schemas.ModelType.ARCHIMATE_APPLICATION: (EngineModelType.ARCHIMATE, ArchitectureLayer.APPLICATION),
-    schemas.ModelType.ARCHIMATE_TECHNOLOGY: (EngineModelType.ARCHIMATE, ArchitectureLayer.TECHNOLOGY),
-    schemas.ModelType.ARCHIMATE_PHYSICAL: (EngineModelType.ARCHIMATE, ArchitectureLayer.PHYSICAL),
-    schemas.ModelType.ARCHIMATE_IMPLEMENTATION: (EngineModelType.ARCHIMATE, ArchitectureLayer.IMPLEMENTATION),
-    schemas.ModelType.ARCHIMATE_MULTI_LAYER: (EngineModelType.ARCHIMATE_MULTI_LAYER, None),
+    schemas.ModelType.ARCHIMATE_STRATEGY: (EngineModelType.ARCHIMATE_STRATEGY, ArchitectureLayer.STRATEGY),
+    schemas.ModelType.ARCHIMATE_BUSINESS: (EngineModelType.ARCHIMATE_BUSINESS, ArchitectureLayer.BUSINESS),
+    schemas.ModelType.ARCHIMATE_APPLICATION: (EngineModelType.ARCHIMATE_APPLICATION, ArchitectureLayer.APPLICATION),
+    schemas.ModelType.ARCHIMATE_TECHNOLOGY: (EngineModelType.ARCHIMATE_TECHNOLOGY, ArchitectureLayer.TECHNOLOGY),
+    schemas.ModelType.ARCHIMATE_PHYSICAL: (EngineModelType.ARCHIMATE_PHYSICAL, ArchitectureLayer.PHYSICAL),
+    schemas.ModelType.ARCHIMATE_IMPLEMENTATION: (EngineModelType.ARCHIMATE_IMPLEMENTATION, ArchitectureLayer.IMPLEMENTATION),
+    schemas.ModelType.ARCHIMATE_MULTI_LAYER: (EngineModelType.ARCHIMATE_STRATEGY, None),  # Use strategy as default for multi-layer
     schemas.ModelType.BPMN_PROCESS: (EngineModelType.BPMN_PROCESS, None),
     schemas.ModelType.BPMN_COLLABORATION: (EngineModelType.BPMN_COLLABORATION, None),
     schemas.ModelType.BPMN_CHOREOGRAPHY: (EngineModelType.BPMN_CHOREOGRAPHY, None),
