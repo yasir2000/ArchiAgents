@@ -1,0 +1,43 @@
+{
+  "executive_summary": {
+    "enterprise": "GlobalBank International",
+    "project": "Digital Banking Platform Transformation",
+    "scope": "Enterprise-wide digital banking transformation",
+    "status": "draft",
+    "phases_completed": 1,
+    "key_achievements": [
+      "Architecture vision and strategic goals established"
+    ]
+  },
+  "architecture_vision": {
+    "goals": 0,
+    "principles": 0,
+    "stakeholders": 0
+  },
+  "business_architecture": null,
+  "information_systems": null,
+  "technology_architecture": null,
+  "solutions_analysis": null,
+  "migration_plan": null,
+  "governance_framework": null,
+  "change_management": null,
+  "architecture_repository": {
+    "principles": [],
+    "standards": [],
+    "patterns": [],
+    "models": [],
+    "deliverables": {
+      "phase_a": {
+        "timestamp": "2025-10-22T19:08:00.201209",
+        "artifacts": []
+      }
+    }
+  },
+  "recommendations": [
+    "Establish Architecture Board for ongoing governance",
+    "Implement continuous monitoring of architecture compliance",
+    "Maintain architecture repository with regular updates",
+    "Conduct quarterly architecture reviews",
+    "Foster architecture community of practice"
+  ]
+}

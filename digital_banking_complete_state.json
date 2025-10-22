@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "enterprise": "GlobalBank International",
+    "project": "Digital Banking Platform Transformation",
+    "scope": "Enterprise-wide digital banking transformation",
+    "saved_at": "2025-10-22T19:08:00.215841"
+  },
+  "progress": {
+    "enterprise": "GlobalBank International",
+    "project": "Digital Banking Platform Transformation",
+    "current_phase": "Phase B",
+    "phases_completed": 1,
+    "total_phases": 8,
+    "progress_percentage": 12.5,
+    "status": "draft",
+    "started_at": "2025-10-22T19:08:00.191204",
+    "completed_at": null,
+    "duration_minutes": 0.00041061666666666663,
+    "completed_phases": [
+      "phase_a"
+    ]
+  },
+  "phase_results": {
+    "phase_a": {
+      "phase": "Architecture Vision",
+      "vision_statement": "Transform GlobalBank into a leading digital-first banking platform delivering seamless omnichannel experiences, AI-powered insights, and real-time financial services accessible 24/7 from any device",
+      "business_goals": [
+        "Increase digital channel usage to 80% of all transactions",
+        "Reduce operational costs by 50% through automation",
+        "Achieve 90% customer satisfaction score (NPS >70)",
+        "Launch mobile app with 1M users in first year",
+        "Implement real-time payment processing"
+      ],
+      "principles_count": 3,
+      "stakeholders_count": 3,
+      "requirements_count": 3,
+      "constraints": [],
+      "assumptions": []
+    }
+  },
+  "repository": {
+    "principles": [],
+    "standards": [],
+    "patterns": [],
+    "models": [],
+    "deliverables": {
+      "phase_a": {
+        "timestamp": "2025-10-22T19:08:00.201209",
+        "artifacts": []
+      }
+    }
+  },
+  "history": [
+    {
+      "phase": "Phase A: Architecture Vision",
+      "event": "started",
+      "timestamp": "2025-10-22T19:08:00.200687"
+    },
+    {
+      "phase": "Phase A",
+      "event": "completed",
+      "timestamp": "2025-10-22T19:08:00.201209",
+      "status": "unknown"
+    },
+    {
+      "phase": "Phase B: Business Architecture",
+      "event": "started",
+      "timestamp": "2025-10-22T19:08:00.201209"
+    }
+  ]
+}
