@@ -123,5 +123,37 @@ def config_cmd():
 cli.add_command(config_cmd, name='config')
 
 
+# Import and register all commands
+from cli.commands import (
+    init_project, list_projects, project_status, delete_project,
+    run_phase, list_phases, phase_status, reset_phase,
+    analyze_architecture, make_decision, check_health, intelligence_report,
+    list_scenarios, describe_scenario, run_scenario
+)
+
+# Register project commands
+project.add_command(init_project, name='init')
+project.add_command(list_projects, name='list')
+project.add_command(project_status, name='status')
+project.add_command(delete_project, name='delete')
+
+# Register phase commands
+phase.add_command(run_phase, name='run')
+phase.add_command(list_phases, name='list')
+phase.add_command(phase_status, name='status')
+phase.add_command(reset_phase, name='reset')
+
+# Register intelligence commands
+intelligence.add_command(analyze_architecture, name='analyze')
+intelligence.add_command(make_decision, name='decide')
+intelligence.add_command(check_health, name='health')
+intelligence.add_command(intelligence_report, name='report')
+
+# Register scenario commands
+scenario.add_command(list_scenarios, name='list')
+scenario.add_command(describe_scenario, name='describe')
+scenario.add_command(run_scenario, name='run')
+
+
 if __name__ == '__main__':
     cli()
