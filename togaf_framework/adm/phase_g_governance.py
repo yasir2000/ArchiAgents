@@ -25,9 +25,33 @@ from enum import Enum
 from ..adm.adm_phase import ADMPhase
 from ..core.base import ArchitectureElement, Deliverable
 from ..core.enums import (
-    PhaseStatus, ArchitectureStatus, RiskLevel, 
-    ComplianceStatus, DeliverableType
+    ArchitectureStatus, RiskLevel, PriorityLevel
 )
+
+
+class PhaseStatus(str, Enum):
+    """Status of phase execution"""
+    NOT_STARTED = "not_started"
+    IN_PROGRESS = "in_progress"
+    APPROVED = "approved"
+    COMPLETED = "completed"
+
+
+class ComplianceStatus(str, Enum):
+    """Status of compliance checks"""
+    PENDING = "pending"
+    COMPLIANT = "compliant"
+    PARTIALLY_COMPLIANT = "partially_compliant"
+    NON_COMPLIANT = "non_compliant"
+
+
+class DeliverableType(str, Enum):
+    """Types of deliverables"""
+    DOCUMENT = "document"
+    REPORT = "report"
+    MODEL = "model"
+    MATRIX = "matrix"
+    CATALOG = "catalog"
 
 
 class ComplianceType(str, Enum):
@@ -381,6 +405,26 @@ class PhaseGImplementationGovernance(ADMPhase):
         self.review_schedule: Dict[str, str] = {}
         self.escalation_procedures: List[Dict[str, str]] = []
     
+    def _initialize_phase(self) -> None:
+        """Initialize phase-specific objectives and activities"""
+        self.objectives = [
+            "Ensure implementation projects comply with target architecture",
+            "Perform architecture compliance reviews",
+            "Implement architecture contracts with development teams",
+            "Manage architecture deviations and changes",
+            "Monitor and report on implementation progress",
+            "Support solution deployment"
+        ]
+        
+        self.activities = [
+            {'name': 'Confirm scope and priorities with implementation teams', 'status': 'pending'},
+            {'name': 'Identify deployment resources and skills', 'status': 'pending'},
+            {'name': 'Guide development of solutions deployment', 'status': 'pending'},
+            {'name': 'Perform Enterprise Architecture compliance reviews', 'status': 'pending'},
+            {'name': 'Implement business and IT operations', 'status': 'pending'},
+            {'name': 'Perform post-implementation review', 'status': 'pending'}
+        ]
+    
     def add_architecture_contract(self, contract: ArchitectureContract):
         """Add architecture contract"""
         self.architecture_contracts[contract.id] = contract
@@ -504,7 +548,7 @@ class PhaseGImplementationGovernance(ADMPhase):
     
     def execute(self) -> Dict:
         """Execute Phase G"""
-        self.status = PhaseStatus.IN_PROGRESS
+        self.status = ArchitectureStatus.IN_PROGRESS
         
         results = {
             'phase': self.name,
@@ -530,7 +574,7 @@ class PhaseGImplementationGovernance(ADMPhase):
         # Check if phase objectives met
         compliance_summary = self.get_compliance_summary()
         if compliance_summary.get('average_score', 0) >= 80:
-            self.status = PhaseStatus.APPROVED
+            self.status = ArchitectureStatus.APPROVED
         
         results['status'] = self.status.value
         results['completion_percentage'] = 100.0
