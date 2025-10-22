@@ -548,7 +548,7 @@ class PhaseGImplementationGovernance(ADMPhase):
     
     def execute(self) -> Dict:
         """Execute Phase G"""
-        self.status = ArchitectureStatus.IN_PROGRESS
+        self.status = ArchitectureStatus.UNDER_REVIEW
         
         results = {
             'phase': self.name,
