@@ -11,6 +11,9 @@ from .phase_a_vision import PhaseAArchitectureVision
 from .phase_b_business import PhaseBBusinessArchitecture
 from .phase_c_information import PhaseCInformationSystems
 from .phase_d_technology import PhaseDTechnologyArchitecture
+from .phase_e_opportunities import PhaseEOpportunitiesAndSolutions
+from .phase_f_migration import PhaseFMigrationPlanning
+from .phase_g_governance import PhaseGImplementationGovernance
 
 __all__ = [
     'ADMCycle',
@@ -19,4 +22,7 @@ __all__ = [
     'PhaseBBusinessArchitecture',
     'PhaseCInformationSystems',
     'PhaseDTechnologyArchitecture',
+    'PhaseEOpportunitiesAndSolutions',
+    'PhaseFMigrationPlanning',
+    'PhaseGImplementationGovernance',
 ]

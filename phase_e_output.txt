@@ -1,0 +1,240 @@
+================================================================================
+TOGAF Phase E: Opportunities and Solutions - Complete Example
+================================================================================
+
+Creating ADM Cycle...
+Initializing Phase E (Opportunities and Solutions)...
+
+================================================================================
+STEP 1: Define Solution Building Blocks
+================================================================================
+
+Solution Building Blocks:
+  OK Microservices Platform
+     Type: cloud_service, Cost: $250,000, Duration: 6 months
+  OK Customer Portal
+     Type: custom_development, Cost: $500,000, Duration: 12 months
+  OK API Management Platform
+     Type: cots, Cost: $150,000, Duration: 4 months
+  OK Data Lake
+     Type: cloud_service, Cost: $200,000, Duration: 8 months
+  OK Identity and Access Management
+     Type: saas, Cost: $100,000, Duration: 3 months
+  OK CI/CD Pipeline
+     Type: open_source, Cost: $80,000, Duration: 4 months
+  OK Monitoring and Observability
+     Type: cloud_service, Cost: $120,000, Duration: 3 months
+  OK Legacy System Integration
+     Type: custom_development, Cost: $400,000, Duration: 10 months
+  OK Data Migration Tools
+     Type: custom_development, Cost: $180,000, Duration: 6 months
+  OK Training and Documentation
+     Type: custom_development, Cost: $150,000, Duration: 4 months
+
+================================================================================
+STEP 2: Consolidate Architecture Gaps
+================================================================================
+OK Consolidated 8 gaps across all domains
+
+================================================================================
+STEP 3: Define Work Packages
+================================================================================
+
+Work Packages:
+  OK WP1: Cloud Foundation (Priority: critical)
+     Cost: $450,000, Duration: 6 months
+  OK WP2: Security Foundation (Priority: critical)
+     Cost: $220,000, Duration: 4 months
+  OK WP3: Data Platform (Priority: high)
+     Cost: $380,000, Duration: 8 months
+  OK WP4: Application Modernization (Priority: high)
+     Cost: $900,000, Duration: 12 months
+  OK WP5: DevOps Automation (Priority: medium)
+     Cost: $200,000, Duration: 4 months
+  OK WP6: Training and Transition (Priority: medium)
+     Cost: $150,000, Duration: 4 months
+
+================================================================================
+STEP 4: Define Implementation Projects
+================================================================================
+
+Implementation Projects:
+  OK Digital Platform Transformation
+     Budget: $870,000, Timeline: 2025-Q1 to 2026-Q1
+     Business Value: high
+  OK Customer Experience Modernization
+     Budget: $1,050,000, Timeline: 2025-Q2 to 2026-Q2
+     Business Value: high
+  OK Data and Analytics Platform
+     Budget: $380,000, Timeline: 2025-Q2 to 2026-Q1
+     Business Value: medium
+
+================================================================================
+STEP 5: Define Implementation Strategy
+================================================================================
+OK Implementation Strategy: phased
+   4 phases defined
+
+================================================================================
+STEP 6: Define Transition Architectures
+================================================================================
+
+Transition Architectures:
+  OK Transition Architecture 1.0 - Q2 2025
+     Capabilities: 3
+  OK Transition Architecture 2.0 - Q4 2025
+     Capabilities: 3
+  OK Transition Architecture 3.0 - Q1 2026
+     Capabilities: 3
+  OK Target Architecture - Q2 2026
+     Capabilities: 3
+
+================================================================================
+STEP 7: Define Constraints
+================================================================================
+
+Business Constraints:
+  OK budget: high impact
+  OK time: high impact
+  OK resource: medium impact
+  OK regulatory: high impact
+
+Technical Constraints:
+  OK technology: high impact
+  OK integration: medium impact
+  OK security: high impact
+
+================================================================================
+STEP 8: Define Key Dependencies
+================================================================================
+
+Critical Dependencies:
+  OK Customer Portal -> Identity and Access Management (critical)
+  OK Data Lake -> Cloud Infrastructure (critical)
+  OK Legacy Integration -> API Gateway (high)
+  OK Application Modernization -> Security Foundation (critical)
+
+================================================================================
+STEP 9: Define Implementation Risks
+================================================================================
+
+Implementation Risks:
+  OK Cloud Migration Complexity (Score: 6/9)
+  OK Resource Availability (Score: 4/9)
+  OK Integration Challenges (Score: 6/9)
+  OK Budget Overrun (Score: 6/9)
+  OK Change Resistance (Score: 4/9)
+  OK Security Compliance (Score: 3/9)
+
+================================================================================
+STEP 10: Define Readiness Assessments
+================================================================================
+
+Readiness Assessments:
+  OK organizational: needs_improvement
+  OK technical: needs_improvement
+  OK financial: ready
+  OK cultural: needs_improvement
+
+================================================================================
+STEP 11: Define Cost Estimates
+================================================================================
+
+Cost Estimates:
+  OK development: One-time: $1,100,000, Annual: $0
+  OK infrastructure: One-time: $350,000, Annual: $200,000
+  OK licensing: One-time: $250,000, Annual: $150,000
+  OK operations: One-time: $0, Annual: $180,000
+  OK training: One-time: $200,000, Annual: $50,000
+
+================================================================================
+STEP 12: Define Benefit Estimates
+================================================================================
+
+Benefit Estimates:
+  OK Reduced infrastructure and operations costs
+     Annual: $400,000, 5-year total: $2,000,000 (high confidence)
+  OK Process automation and efficiency improvements
+     Annual: $600,000, 5-year total: $3,000,000 (high confidence)
+  OK New digital channels and improved customer experience
+     Annual: $800,000, 5-year total: $4,000,000 (medium confidence)
+  OK Improved security and compliance
+     Annual: $200,000, 5-year total: $1,000,000 (medium confidence)
+  OK Reduced customer onboarding costs
+     Annual: $300,000, 5-year total: $1,500,000 (high confidence)
+
+================================================================================
+STEP 13: Calculate ROI Analysis
+================================================================================
+
+[FINANCIAL] ROI Analysis (5-year period):
+  Total One-Time Costs: $1,900,000
+  Total Annual Recurring: $580,000
+  Total Costs (5 years): $4,800,000
+  Total Benefits (5 years): $11,500,000
+  Net Benefit: $6,700,000
+  ROI: 139.6%
+  Payback Period: 0.8 years
+
+================================================================================
+STEP 14: Architecture Summaries
+================================================================================
+
+[SOLUTIONS] Solution Building Blocks:
+  Total SBBs: 10
+  By Type: {'cloud_service': 3, 'custom_development': 4, 'cots': 1, 'saas': 1, 'open_source': 1}
+  By Category: {'technology': 4, 'application': 3, 'data': 2, 'security': 1}
+  Total Cost: $2,130,000
+
+[WORKPLAN] Work Packages:
+  Total Packages: 6
+  By Priority: {'critical': 2, 'high': 2, 'medium': 2}
+  Total Cost: $2,300,000
+  Total Duration: 38 months
+
+[RISKS] Risk Summary:
+  Total Risks: 6
+  High Risks: 3
+  Medium Risks: 3
+  Low Risks: 0
+  By Category: {'technical': 2, 'organizational': 2, 'financial': 1, 'external': 1}
+
+================================================================================
+STEP 15: Execute Phase E
+================================================================================
+
+OK Phase E Execution Complete!
+  Status: APPROVED
+  Progress: 100.0%
+
+================================================================================
+STEP 16: Save Results to JSON
+================================================================================
+
+OK Results saved to: phase_e_opportunities_solutions_results.json
+  File size: 31,661 bytes
+
+================================================================================
+PHASE E OPPORTUNITIES AND SOLUTIONS - COMPLETE
+================================================================================
+
+[DOCS] Deliverables Generated:
+  OK Implementation Plan
+  OK Solution Catalog
+  OK Business Case
+
+[GOALS] Key Achievements:
+  OK 10 solution building blocks defined
+  OK 6 work packages created
+  OK 3 implementation projects planned
+  OK 4 transition architectures defined
+  OK Phased implementation strategy with 4 phases
+  OK ROI of 139.6% over 5 years
+  OK Payback period of 0.8 years
+  OK 6 risks identified and mitigated
+  OK Complete cost-benefit analysis
+  OK Organizational readiness assessed
+
+================================================================================
+Phase E: Opportunities and Solutions execution completed successfully!
+================================================================================

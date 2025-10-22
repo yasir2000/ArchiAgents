@@ -1,0 +1,833 @@
+{
+  "phase": "PHASE_F",
+  "status": "APPROVED",
+  "progress": 100.0,
+  "projects": {
+    "summary": {
+      "total_projects": 5,
+      "by_status": {
+        "planned": 5
+      },
+      "by_priority": {
+        "critical": 2,
+        "high": 2,
+        "medium": 1
+      },
+      "total_budget": 2150000
+    },
+    "projects": [
+      {
+        "id": "2a3ef67d-aa41-408d-b71f-e4084a25a051",
+        "name": "Cloud Foundation Setup",
+        "description": "Deploy Azure/AWS infrastructure",
+        "start_date": "2025-01-15",
+        "end_date": "2025-06-30",
+        "duration_days": 167,
+        "work_packages": [
+          "WP1"
+        ],
+        "deliverables": [
+          "Cloud operational",
+          "Security baseline"
+        ],
+        "dependencies": [],
+        "priority": "critical",
+        "budget": 450000,
+        "status": "planned",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "61dc6c37-5be1-4409-8e9d-4bc8a0a109f1",
+        "name": "Security Implementation",
+        "description": "Zero-trust security",
+        "start_date": "2025-02-01",
+        "end_date": "2025-05-31",
+        "duration_days": 120,
+        "work_packages": [
+          "WP2"
+        ],
+        "deliverables": [
+          "IAM deployed",
+          "Controls active"
+        ],
+        "dependencies": [
+          "Cloud Foundation Setup"
+        ],
+        "priority": "critical",
+        "budget": 220000,
+        "status": "planned",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "77ae1a73-a2db-4453-b38d-7fc3849884b3",
+        "name": "Data Platform Deployment",
+        "description": "Build data lake",
+        "start_date": "2025-04-01",
+        "end_date": "2025-11-30",
+        "duration_days": 244,
+        "work_packages": [
+          "WP3"
+        ],
+        "deliverables": [
+          "Data lake operational"
+        ],
+        "dependencies": [
+          "Cloud Foundation Setup"
+        ],
+        "priority": "high",
+        "budget": 380000,
+        "status": "planned",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "920c9c5d-d629-49b0-b38b-d2691619bab8",
+        "name": "Application Modernization",
+        "description": "Customer portal and mobile",
+        "start_date": "2025-05-01",
+        "end_date": "2026-04-30",
+        "duration_days": 365,
+        "work_packages": [
+          "WP4"
+        ],
+        "deliverables": [
+          "Portal live",
+          "Mobile app"
+        ],
+        "dependencies": [
+          "Security Implementation"
+        ],
+        "priority": "high",
+        "budget": 900000,
+        "status": "planned",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "d05793f3-dab1-4264-87ed-7991a38d19e5",
+        "name": "DevOps Setup",
+        "description": "CI/CD automation",
+        "start_date": "2025-03-01",
+        "end_date": "2025-06-30",
+        "duration_days": 122,
+        "work_packages": [
+          "WP5"
+        ],
+        "deliverables": [
+          "Pipelines operational"
+        ],
+        "dependencies": [
+          "Cloud Foundation Setup"
+        ],
+        "priority": "medium",
+        "budget": 200000,
+        "status": "planned",
+        "created_at": "2025-10-22T18:13:32.603575"
+      }
+    ],
+    "portfolio": {
+      "total_budget": 2300000,
+      "timeframe_months": 18,
+      "strategic_themes": [
+        "Digital Transform",
+        "Vision 2030"
+      ],
+      "constraints": [
+        "Budget constraints",
+        "Timeline critical"
+      ],
+      "total_projects": 5,
+      "defined_at": "2025-10-22T18:13:32.603575"
+    }
+  },
+  "timeline": {
+    "summary": {
+      "total_phases": 4,
+      "total_milestones": 4,
+      "governance_checkpoints": 3,
+      "critical_path_length": 5
+    },
+    "roadmap": [
+      {
+        "id": "331e09ab-cf9c-4aa7-9470-d77abdd57296",
+        "name": "Foundation Phase",
+        "description": "Cloud & Security",
+        "start_date": "2025-Q1",
+        "end_date": "2025-Q2",
+        "duration_months": 6,
+        "objectives": [
+          "Deploy cloud infrastructure",
+          "Implement security"
+        ],
+        "key_deliverables": [
+          "Cloud platform",
+          "Security framework"
+        ],
+        "success_criteria": [
+          "Infrastructure operational",
+          "Security compliant"
+        ],
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "20725853-bdb0-42b4-b6eb-d66745718028",
+        "name": "Core Systems Phase",
+        "description": "Data & Applications",
+        "start_date": "2025-Q2",
+        "end_date": "2025-Q4",
+        "duration_months": 6,
+        "objectives": [
+          "Deploy data platform",
+          "Build customer portal"
+        ],
+        "key_deliverables": [
+          "Data lake",
+          "Customer portal beta"
+        ],
+        "success_criteria": [
+          "Systems operational",
+          "Users onboarded"
+        ],
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "2065bebc-17e8-4788-94d1-932603faf299",
+        "name": "Integration Phase",
+        "description": "Legacy & Testing",
+        "start_date": "2025-Q4",
+        "end_date": "2026-Q1",
+        "duration_months": 3,
+        "objectives": [
+          "Integrate legacy systems",
+          "End-to-end testing"
+        ],
+        "key_deliverables": [
+          "Integration complete",
+          "Testing passed"
+        ],
+        "success_criteria": [
+          "All systems integrated",
+          "Quality validated"
+        ],
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "ab33f2f8-e33e-4bcb-9c63-987aa9acd854",
+        "name": "Deployment Phase",
+        "description": "Production Rollout",
+        "start_date": "2026-Q1",
+        "end_date": "2026-Q2",
+        "duration_months": 3,
+        "objectives": [
+          "Production deployment",
+          "User training"
+        ],
+        "key_deliverables": [
+          "Full production",
+          "Users trained"
+        ],
+        "success_criteria": [
+          "100% operational",
+          "Support ready"
+        ],
+        "created_at": "2025-10-22T18:13:32.603575"
+      }
+    ],
+    "milestones": [
+      {
+        "id": "287c8806-7025-4904-ae0e-bd24f74f7bb5",
+        "name": "Cloud Go-Live",
+        "description": "Production cloud infrastructure",
+        "target_date": "2025-06-30",
+        "type": "phase",
+        "deliverables": [
+          "Cloud infrastructure",
+          "Network configured"
+        ],
+        "success_criteria": [
+          "99.9% uptime achieved"
+        ],
+        "owner": "Cloud Architect",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "705aa68d-6047-454c-86b1-14cb29c8ed29",
+        "name": "Security Certification",
+        "description": "NORA compliance achieved",
+        "target_date": "2025-05-31",
+        "type": "governance",
+        "deliverables": [
+          "Security controls",
+          "Audit report"
+        ],
+        "success_criteria": [
+          "NORA compliant"
+        ],
+        "owner": "Security Officer",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "c7c0f969-8d35-4c61-9e29-d307771eef46",
+        "name": "Data Platform Ready",
+        "description": "Data lake operational",
+        "target_date": "2025-11-30",
+        "type": "project",
+        "deliverables": [
+          "Data lake",
+          "ETL pipelines",
+          "Analytics"
+        ],
+        "success_criteria": [
+          "Data flowing",
+          "Reports available"
+        ],
+        "owner": "Data Architect",
+        "created_at": "2025-10-22T18:13:32.603575"
+      },
+      {
+        "id": "e3179083-0375-47b7-a1f1-b7da96f3aebe",
+        "name": "Portal Launch",
+        "description": "Customer portal production",
+        "target_date": "2026-04-30",
+        "type": "business",
+        "deliverables": [
+          "Portal deployed",
+          "Mobile app"
+        ],
+        "success_criteria": [
+          "Users active",
+          "80% adoption"
+        ],
+        "owner": "Product Manager",
+        "created_at": "2025-10-22T18:13:32.603575"
+      }
+    ],
+    "critical_path": [
+      "Cloud Foundation Setup",
+      "Security Implementation",
+      "DevOps Setup",
+      "Data Platform Deployment",
+      "Application Modernization"
+    ]
+  },
+  "resources": {
+    "summary": {
+      "total_requirements": 9,
+      "total_allocations": 0,
+      "resource_pool_size": 4,
+      "allocation_rate": 0.0
+    },
+    "requirements": [
+      {
+        "id": "f17a4e8f-e25e-4446-83b0-14bb6db0c7bd",
+        "project_name": "Cloud Foundation Setup",
+        "role": "cloud_architect",
+        "required_count": 2,
+        "skill_level": "senior",
+        "start_date": "2025-01-15",
+        "end_date": "2025-06-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609278"
+      },
+      {
+        "id": "800f0a30-d15c-4239-b274-77fbb211153d",
+        "project_name": "Cloud Foundation Setup",
+        "role": "cloud_engineer",
+        "required_count": 4,
+        "skill_level": "mid",
+        "start_date": "2025-01-15",
+        "end_date": "2025-06-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609278"
+      },
+      {
+        "id": "9e26ffe2-fc72-4a62-b91d-5dcf233f9983",
+        "project_name": "Security Implementation",
+        "role": "security_architect",
+        "required_count": 2,
+        "skill_level": "senior",
+        "start_date": "2025-02-01",
+        "end_date": "2025-05-31",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609786"
+      },
+      {
+        "id": "b082c8b3-27a7-4972-8d45-3717b70cb4f5",
+        "project_name": "Security Implementation",
+        "role": "security_engineer",
+        "required_count": 3,
+        "skill_level": "mid",
+        "start_date": "2025-02-01",
+        "end_date": "2025-05-31",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609798"
+      },
+      {
+        "id": "d110e788-7d03-4877-b193-dead68788a2d",
+        "project_name": "Data Platform Deployment",
+        "role": "data_architect",
+        "required_count": 2,
+        "skill_level": "senior",
+        "start_date": "2025-04-01",
+        "end_date": "2025-11-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609798"
+      },
+      {
+        "id": "2f36c785-7164-4a90-99ed-758cb9638256",
+        "project_name": "Data Platform Deployment",
+        "role": "data_engineer",
+        "required_count": 4,
+        "skill_level": "mid",
+        "start_date": "2025-04-01",
+        "end_date": "2025-11-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609798"
+      },
+      {
+        "id": "afeaa0b2-e2c4-40ef-8ed7-a7cbdfe734e9",
+        "project_name": "Application Modernization",
+        "role": "solution_architect",
+        "required_count": 2,
+        "skill_level": "senior",
+        "start_date": "2025-05-01",
+        "end_date": "2026-04-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609798"
+      },
+      {
+        "id": "a07dbd70-fd7d-4ee0-bc89-b65d72fa115e",
+        "project_name": "Application Modernization",
+        "role": "developer",
+        "required_count": 8,
+        "skill_level": "mid",
+        "start_date": "2025-05-01",
+        "end_date": "2026-04-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609798"
+      },
+      {
+        "id": "728a86f0-931c-4e19-b136-66b30556dc0a",
+        "project_name": "DevOps Setup",
+        "role": "devops_engineer",
+        "required_count": 3,
+        "skill_level": "senior",
+        "start_date": "2025-03-01",
+        "end_date": "2025-06-30",
+        "allocation_percentage": 100,
+        "created_at": "2025-10-22T18:13:32.609931"
+      }
+    ],
+    "allocations": [],
+    "pool": [
+      {
+        "id": "836689d6-8cb5-4eff-9016-20fca1d01317",
+        "name": "Sarah Chen",
+        "role": "cloud_architect",
+        "skill_level": "senior",
+        "availability_percentage": 100,
+        "cost_per_day": 1500,
+        "created_at": "2025-10-22T18:13:32.609931"
+      },
+      {
+        "id": "d4c9f691-bdff-4b0b-b1ea-114f762e2a59",
+        "name": "Mohammed Ali",
+        "role": "cloud_architect",
+        "skill_level": "senior",
+        "availability_percentage": 100,
+        "cost_per_day": 1500,
+        "created_at": "2025-10-22T18:13:32.609931"
+      },
+      {
+        "id": "9a0bd1ed-7d2e-4275-9c1c-8e14a7b69881",
+        "name": "Ahmed Hassan",
+        "role": "security_architect",
+        "skill_level": "senior",
+        "availability_percentage": 100,
+        "cost_per_day": 1400,
+        "created_at": "2025-10-22T18:13:32.609931"
+      },
+      {
+        "id": "47c57732-5a25-4ea9-8591-f95b2dd3a49f",
+        "name": "Fatima Al-Said",
+        "role": "data_architect",
+        "skill_level": "senior",
+        "availability_percentage": 100,
+        "cost_per_day": 1400,
+        "created_at": "2025-10-22T18:13:32.609931"
+      }
+    ]
+  },
+  "dependencies": [
+    {
+      "id": "3c678b74-5980-40dc-b2dd-624c50af94ee",
+      "from_project": "Cloud Foundation Setup",
+      "to_project": "Security Implementation",
+      "type": "finish_to_start",
+      "lag_days": 0,
+      "description": "Security needs cloud platform",
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "3a707bcb-b1a9-4f9a-8ab4-d53b6edad39a",
+      "from_project": "Cloud Foundation Setup",
+      "to_project": "Data Platform Deployment",
+      "type": "finish_to_start",
+      "lag_days": 0,
+      "description": "Data platform needs cloud",
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "6cccc496-947a-4db8-ae5e-95d9436b1c2b",
+      "from_project": "Security Implementation",
+      "to_project": "Application Modernization",
+      "type": "finish_to_start",
+      "lag_days": 0,
+      "description": "Apps need security",
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "d256c82e-1c35-41bb-a17a-8f7ecb327b54",
+      "from_project": "Cloud Foundation Setup",
+      "to_project": "DevOps Setup",
+      "type": "finish_to_start",
+      "lag_days": 0,
+      "description": "DevOps needs cloud",
+      "created_at": "2025-10-22T18:13:32.609931"
+    }
+  ],
+  "value_assessments": [
+    {
+      "id": "0dc68e94-1cdb-40c0-a040-2b8f161c3c93",
+      "project_name": "Cloud Foundation Setup",
+      "business_value_score": 9,
+      "strategic_alignment_score": 10,
+      "risk_reduction_score": 8,
+      "implementation_complexity": 7,
+      "total_value_score": 7.5,
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "8d94b77a-fd32-487c-9882-e54c8cef7185",
+      "project_name": "Security Implementation",
+      "business_value_score": 8,
+      "strategic_alignment_score": 10,
+      "risk_reduction_score": 9,
+      "implementation_complexity": 6,
+      "total_value_score": 7.4,
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "b8aae437-233e-4fc0-803e-2b3bf3f31538",
+      "project_name": "Data Platform Deployment",
+      "business_value_score": 7,
+      "strategic_alignment_score": 8,
+      "risk_reduction_score": 7,
+      "implementation_complexity": 8,
+      "total_value_score": 5.8,
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "f91afb02-1307-4d98-bcc0-789d700b2b49",
+      "project_name": "Application Modernization",
+      "business_value_score": 9,
+      "strategic_alignment_score": 9,
+      "risk_reduction_score": 8,
+      "implementation_complexity": 9,
+      "total_value_score": 7.0,
+      "created_at": "2025-10-22T18:13:32.609931"
+    },
+    {
+      "id": "20bff7b6-7547-4949-a62d-d76d9697a1b5",
+      "project_name": "DevOps Setup",
+      "business_value_score": 6,
+      "strategic_alignment_score": 7,
+      "risk_reduction_score": 7,
+      "implementation_complexity": 5,
+      "total_value_score": 5.4,
+      "created_at": "2025-10-22T18:13:32.609931"
+    }
+  ],
+  "risks": {
+    "summary": {
+      "total_risks": 3,
+      "high_risks": 3,
+      "medium_risks": 0,
+      "low_risks": 0,
+      "mitigation_plans": 1
+    },
+    "risks": [
+      {
+        "id": "a3fabbbf-7652-4266-9f5a-414203e1f8e7",
+        "name": "Cloud Migration Delays",
+        "category": "technical",
+        "affected_projects": [
+          "Cloud Foundation Setup"
+        ],
+        "probability": "medium",
+        "impact": "high",
+        "risk_score": 6,
+        "mitigation_plan": "Add buffer time, engage cloud migration specialists",
+        "owner": "Cloud Architect",
+        "created_at": "2025-10-22T18:13:32.609931"
+      },
+      {
+        "id": "55b55cf8-5aa2-401f-9dfd-02460af9964d",
+        "name": "Resource Constraints",
+        "category": "organizational",
+        "affected_projects": [
+          "All Projects"
+        ],
+        "probability": "high",
+        "impact": "medium",
+        "risk_score": 6,
+        "mitigation_plan": "Build resource pipeline, cross-train team",
+        "owner": "Program Manager",
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "e1fbd48d-5db5-42d4-91b8-6a44eca06195",
+        "name": "Integration Complexity",
+        "category": "technical",
+        "affected_projects": [
+          "Application Modernization"
+        ],
+        "probability": "high",
+        "impact": "high",
+        "risk_score": 9,
+        "mitigation_plan": "Early POC, allocate buffer time",
+        "owner": "Integration Lead",
+        "created_at": "2025-10-22T18:13:32.614046"
+      }
+    ],
+    "mitigation_plans": [
+      {
+        "id": "1e39393d-b812-4dfc-95b6-4ede8e42e952",
+        "risk_name": "Cloud Migration Delays",
+        "mitigation_actions": [
+          "Conduct pilot migration",
+          "Engage vendor early",
+          "Weekly progress reviews"
+        ],
+        "contingency_plan": "Activate secondary vendor if delays exceed 2 weeks",
+        "responsible_party": "Cloud Architect",
+        "target_date": "2025-02-01",
+        "budget": 50000,
+        "created_at": "2025-10-22T18:13:32.614046"
+      }
+    ]
+  },
+  "governance": {
+    "checkpoints": [
+      {
+        "id": "36900cd5-1afa-4cf7-841a-c8b756c5f459",
+        "name": "Phase Gate 1 - Foundation",
+        "type": "phase_gate",
+        "date": "2025-06-30",
+        "scope": "Foundation Phase Completion",
+        "approval_criteria": [
+          "Cloud infrastructure operational",
+          "Security controls implemented",
+          "99.9% uptime achieved"
+        ],
+        "approvers": [
+          "CTO",
+          "CISO",
+          "Architecture Board"
+        ],
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "db908878-b450-4d2b-bd10-8e5e634b647d",
+        "name": "Phase Gate 2 - Core Systems",
+        "type": "phase_gate",
+        "date": "2025-12-31",
+        "scope": "Core Systems Completion",
+        "approval_criteria": [
+          "Data platform operational",
+          "Portal beta deployed",
+          "Integration tested"
+        ],
+        "approvers": [
+          "CTO",
+          "CIO",
+          "Business Sponsors"
+        ],
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "7ac73998-b290-4bf5-91bc-450597453ed1",
+        "name": "Architecture Review 1",
+        "type": "architecture_review",
+        "date": "2025-09-30",
+        "scope": "Mid-program Architecture Review",
+        "approval_criteria": [
+          "Architecture principles followed",
+          "Standards compliance",
+          "Technical debt managed"
+        ],
+        "approvers": [
+          "Chief Architect",
+          "Architecture Board"
+        ],
+        "created_at": "2025-10-22T18:13:32.614046"
+      }
+    ],
+    "success_metrics": [
+      {
+        "id": "cf3fde76-8d7b-40d5-9290-1ffbf7154efa",
+        "name": "On-Time Delivery",
+        "description": "Percentage of milestones delivered on schedule",
+        "category": "schedule",
+        "target_value": "100%",
+        "measurement_method": "Project tracking system",
+        "frequency": "Weekly",
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "36f2991f-4764-4574-a150-dbe3ad8aaf9d",
+        "name": "Budget Variance",
+        "description": "Actual vs planned costs",
+        "category": "cost",
+        "target_value": "<5% variance",
+        "measurement_method": "Financial reports",
+        "frequency": "Monthly",
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "40a8c529-b7f3-4583-99b9-818f25127f8a",
+        "name": "Quality Score",
+        "description": "Defect density and test coverage",
+        "category": "quality",
+        "target_value": "<2 defects per 1000 LOC, >80% coverage",
+        "measurement_method": "Quality metrics dashboard",
+        "frequency": "Sprint",
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "7a737ea5-40d1-4d80-b246-2bb3a1204228",
+        "name": "Business Value Realized",
+        "description": "Benefits achieved vs planned",
+        "category": "business_value",
+        "target_value": ">90% of planned benefits",
+        "measurement_method": "Benefits tracking",
+        "frequency": "Quarterly",
+        "created_at": "2025-10-22T18:13:32.614046"
+      }
+    ]
+  },
+  "change_management": {
+    "initiatives": [
+      {
+        "id": "93f013e8-db3e-43d5-aa96-4d2593c81faf",
+        "name": "DevOps Culture Transformation",
+        "description": "Transform to DevOps and agile practices",
+        "target_audience": "IT Operations and Development Teams",
+        "type": "organizational",
+        "impact_level": "high",
+        "activities": [
+          "DevOps training",
+          "Agile coaching",
+          "Tool adoption"
+        ],
+        "timeline": "2025-Q1 to 2025-Q3",
+        "success_metrics": [
+          "Team adoption >80%",
+          "Deployment frequency increased"
+        ],
+        "created_at": "2025-10-22T18:13:32.614046"
+      },
+      {
+        "id": "a21ca77a-baa7-4791-9041-df4fbeb0d0c6",
+        "name": "Cloud Skills Development",
+        "description": "Build cloud engineering capabilities",
+        "target_audience": "Technical Teams",
+        "type": "technology",
+        "impact_level": "high",
+        "activities": [
+          "Cloud certifications",
+          "Hands-on labs",
+          "Vendor training"
+        ],
+        "timeline": "2025-Q1 to 2025-Q2",
+        "success_metrics": [
+          "50% team certified",
+          "Cloud proficiency achieved"
+        ],
+        "created_at": "2025-10-22T18:13:32.614046"
+      }
+    ],
+    "stakeholder_engagement": {
+      "stakeholder_groups": [
+        {
+          "group": "Executive Leadership",
+          "engagement": "Monthly steering committee"
+        },
+        {
+          "group": "Business Users",
+          "engagement": "Bi-weekly demos and feedback"
+        },
+        {
+          "group": "IT Operations",
+          "engagement": "Weekly stand-ups"
+        },
+        {
+          "group": "External Partners",
+          "engagement": "Quarterly reviews"
+        }
+      ],
+      "communication_approach": "Multi-channel communication strategy with regular touchpoints",
+      "engagement_frequency": "Weekly to Monthly based on stakeholder group",
+      "feedback_mechanisms": [
+        "Surveys",
+        "Town halls",
+        "Office hours",
+        "Feedback portal"
+      ],
+      "defined_at": "2025-10-22T18:13:32.614046"
+    }
+  },
+  "deliverables": {
+    "migration_plan": {
+      "id": "48b7e105-36fb-4bc5-82a4-5dd07a1885a4",
+      "name": "Implementation and Migration Plan",
+      "description": "Detailed implementation and migration plan with timeline",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T18:13:32.614046",
+      "updated_at": "2025-10-22T18:13:32.614046",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "migration_planning",
+      "format": "json",
+      "references_count": 0
+    },
+    "resource_plan": {
+      "id": "e19a9b3a-66bd-4e2a-a15a-e6c0c9171a20",
+      "name": "Resource Plan",
+      "description": "Comprehensive resource planning and allocation",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T18:13:32.614046",
+      "updated_at": "2025-10-22T18:13:32.614046",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "migration_planning",
+      "format": "json",
+      "references_count": 0
+    },
+    "governance_plan": {
+      "id": "64afb86f-96a7-42d5-abb2-013facd9774d",
+      "name": "Governance and Risk Management Plan",
+      "description": "Governance framework and risk management approach",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T18:13:32.614046",
+      "updated_at": "2025-10-22T18:13:32.614046",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "migration_planning",
+      "format": "json",
+      "references_count": 0
+    }
+  },
+  "completed_at": "2025-10-22T18:13:32.614046"
+}

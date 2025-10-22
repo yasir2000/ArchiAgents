@@ -1,0 +1,938 @@
+{
+  "phase": "PHASE_E",
+  "status": "APPROVED",
+  "progress": 100.0,
+  "solutions": {
+    "summary": {
+      "total_sbbs": 10,
+      "by_type": {
+        "cloud_service": 3,
+        "custom_development": 4,
+        "cots": 1,
+        "saas": 1,
+        "open_source": 1
+      },
+      "by_category": {
+        "technology": 4,
+        "application": 3,
+        "data": 2,
+        "security": 1
+      },
+      "total_estimated_cost": 2130000,
+      "average_timeframe_months": 6.0
+    },
+    "building_blocks": [
+      {
+        "id": "816d62db-e18a-4d08-83e8-67395bb3d4ed",
+        "name": "Microservices Platform",
+        "description": "Container orchestration and service mesh",
+        "type": "cloud_service",
+        "category": "technology",
+        "implementation_effort": "medium",
+        "cost_estimate": 250000,
+        "timeframe_months": 6,
+        "dependencies": [
+          "Cloud Infrastructure"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "406f94e4-4628-4c4b-9114-44ba00030aa3",
+        "name": "Customer Portal",
+        "description": "Modern web portal with mobile app",
+        "type": "custom_development",
+        "category": "application",
+        "implementation_effort": "high",
+        "cost_estimate": 500000,
+        "timeframe_months": 12,
+        "dependencies": [
+          "API Gateway",
+          "Identity Management"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "f2c39a2b-1481-4c18-9654-5bd170df59e4",
+        "name": "API Management Platform",
+        "description": "Enterprise API gateway and management",
+        "type": "cots",
+        "category": "technology",
+        "implementation_effort": "medium",
+        "cost_estimate": 150000,
+        "timeframe_months": 4,
+        "dependencies": [
+          "Cloud Infrastructure"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "24cfc6dc-2362-41d0-b536-f738e375c0db",
+        "name": "Data Lake",
+        "description": "Centralized data storage and analytics",
+        "type": "cloud_service",
+        "category": "data",
+        "implementation_effort": "medium",
+        "cost_estimate": 200000,
+        "timeframe_months": 8,
+        "dependencies": [
+          "Cloud Infrastructure",
+          "Data Migration"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "1df42e42-5791-4b47-9ef1-3a797c8e1efb",
+        "name": "Identity and Access Management",
+        "description": "Enterprise SSO and RBAC",
+        "type": "saas",
+        "category": "security",
+        "implementation_effort": "low",
+        "cost_estimate": 100000,
+        "timeframe_months": 3,
+        "dependencies": [],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "71b8c2fc-9b42-462d-9c53-965f85cf67e1",
+        "name": "CI/CD Pipeline",
+        "description": "Automated build and deployment",
+        "type": "open_source",
+        "category": "technology",
+        "implementation_effort": "medium",
+        "cost_estimate": 80000,
+        "timeframe_months": 4,
+        "dependencies": [
+          "Cloud Infrastructure"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "95fafeac-e6e6-4d51-8136-d2ad6befab12",
+        "name": "Monitoring and Observability",
+        "description": "Full-stack monitoring solution",
+        "type": "cloud_service",
+        "category": "technology",
+        "implementation_effort": "low",
+        "cost_estimate": 120000,
+        "timeframe_months": 3,
+        "dependencies": [
+          "Cloud Infrastructure"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "1fc5160f-3540-4d61-80ee-993d214559ca",
+        "name": "Legacy System Integration",
+        "description": "Integration adapters for legacy systems",
+        "type": "custom_development",
+        "category": "application",
+        "implementation_effort": "high",
+        "cost_estimate": 400000,
+        "timeframe_months": 10,
+        "dependencies": [
+          "API Gateway"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "30717f7d-1b63-4eb3-b8a2-eae4697eb38f",
+        "name": "Data Migration Tools",
+        "description": "ETL and data migration utilities",
+        "type": "custom_development",
+        "category": "data",
+        "implementation_effort": "medium",
+        "cost_estimate": 180000,
+        "timeframe_months": 6,
+        "dependencies": [
+          "Data Lake"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "8828a9b3-9a4e-4b30-a52f-f8c6fba914a9",
+        "name": "Training and Documentation",
+        "description": "User training and system documentation",
+        "type": "custom_development",
+        "category": "application",
+        "implementation_effort": "low",
+        "cost_estimate": 150000,
+        "timeframe_months": 4,
+        "dependencies": [
+          "Customer Portal"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ]
+  },
+  "work_packages": {
+    "summary": {
+      "total_work_packages": 6,
+      "by_priority": {
+        "critical": 2,
+        "high": 2,
+        "medium": 2
+      },
+      "total_estimated_cost": 2300000,
+      "total_estimated_duration_months": 38
+    },
+    "packages": [
+      {
+        "id": "b1dfba1f-3748-4938-b2f1-2cafb113e895",
+        "name": "WP1: Cloud Foundation",
+        "description": "Establish cloud infrastructure and platform services",
+        "objectives": [
+          "Deploy Azure/AWS infrastructure",
+          "Setup Kubernetes clusters",
+          "Configure networking"
+        ],
+        "solution_blocks": [
+          "Microservices Platform",
+          "API Management Platform",
+          "Cloud Infrastructure"
+        ],
+        "priority": "critical",
+        "estimated_cost": 450000,
+        "estimated_duration_months": 6,
+        "resource_requirements": {
+          "architects": 2,
+          "engineers": 4,
+          "cloud_specialists": 2
+        },
+        "dependencies": [],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "6c6eb171-a402-4987-a508-86365ff03009",
+        "name": "WP2: Security Foundation",
+        "description": "Implement security controls and IAM",
+        "objectives": [
+          "Deploy identity management",
+          "Configure zero-trust",
+          "Setup security monitoring"
+        ],
+        "solution_blocks": [
+          "Identity and Access Management",
+          "Monitoring and Observability"
+        ],
+        "priority": "critical",
+        "estimated_cost": 220000,
+        "estimated_duration_months": 4,
+        "resource_requirements": {
+          "security_architects": 2,
+          "engineers": 3
+        },
+        "dependencies": [
+          "WP1: Cloud Foundation"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "0d102344-38bc-4826-8db4-8d4cd226e6d5",
+        "name": "WP3: Data Platform",
+        "description": "Build data lake and migration tools",
+        "objectives": [
+          "Setup data lake",
+          "Develop ETL pipelines",
+          "Migrate data"
+        ],
+        "solution_blocks": [
+          "Data Lake",
+          "Data Migration Tools"
+        ],
+        "priority": "high",
+        "estimated_cost": 380000,
+        "estimated_duration_months": 8,
+        "resource_requirements": {
+          "data_architects": 2,
+          "data_engineers": 4
+        },
+        "dependencies": [
+          "WP1: Cloud Foundation"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "1e92afed-935d-43ed-bbdb-2f5dae563889",
+        "name": "WP4: Application Modernization",
+        "description": "Develop customer portal and integrate legacy systems",
+        "objectives": [
+          "Build customer portal",
+          "Develop mobile app",
+          "Integrate legacy systems"
+        ],
+        "solution_blocks": [
+          "Customer Portal",
+          "Legacy System Integration"
+        ],
+        "priority": "high",
+        "estimated_cost": 900000,
+        "estimated_duration_months": 12,
+        "resource_requirements": {
+          "solution_architects": 2,
+          "developers": 8,
+          "qa_engineers": 3
+        },
+        "dependencies": [
+          "WP1: Cloud Foundation",
+          "WP2: Security Foundation"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "722775fb-1d98-43c8-8a43-ef7c017560d2",
+        "name": "WP5: DevOps Automation",
+        "description": "Implement CI/CD and monitoring",
+        "objectives": [
+          "Setup CI/CD pipelines",
+          "Configure monitoring",
+          "Automate deployments"
+        ],
+        "solution_blocks": [
+          "CI/CD Pipeline",
+          "Monitoring and Observability"
+        ],
+        "priority": "medium",
+        "estimated_cost": 200000,
+        "estimated_duration_months": 4,
+        "resource_requirements": {
+          "devops_engineers": 3,
+          "sre": 2
+        },
+        "dependencies": [
+          "WP1: Cloud Foundation"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "477d7300-35b5-4104-a2b7-3ba07e9a1f1b",
+        "name": "WP6: Training and Transition",
+        "description": "Train users and transition to new systems",
+        "objectives": [
+          "Develop training materials",
+          "Conduct training",
+          "Support transition"
+        ],
+        "solution_blocks": [
+          "Training and Documentation"
+        ],
+        "priority": "medium",
+        "estimated_cost": 150000,
+        "estimated_duration_months": 4,
+        "resource_requirements": {
+          "trainers": 3,
+          "support_staff": 4
+        },
+        "dependencies": [
+          "WP4: Application Modernization"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ],
+    "projects": [
+      {
+        "id": "ebf4c6de-cc4b-4509-8244-cb5e466a7722",
+        "name": "Digital Platform Transformation",
+        "description": "Comprehensive digital transformation program",
+        "work_packages": [
+          "WP1: Cloud Foundation",
+          "WP2: Security Foundation",
+          "WP5: DevOps Automation"
+        ],
+        "start_date": "2025-Q1",
+        "end_date": "2026-Q1",
+        "budget": 870000,
+        "business_value": "high",
+        "strategic_alignment": "Enables cloud-native architecture and supports Vision 2030 goals",
+        "success_criteria": [
+          "Cloud infrastructure operational",
+          "Security compliance achieved",
+          "CI/CD automation 100%"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "ae60db85-081b-4899-b4e5-34d79f3354a8",
+        "name": "Customer Experience Modernization",
+        "description": "Transform customer-facing applications",
+        "work_packages": [
+          "WP4: Application Modernization",
+          "WP6: Training and Transition"
+        ],
+        "start_date": "2025-Q2",
+        "end_date": "2026-Q2",
+        "budget": 1050000,
+        "business_value": "high",
+        "strategic_alignment": "Improves customer satisfaction and reduces onboarding time",
+        "success_criteria": [
+          "Customer portal launched",
+          "Mobile app available",
+          "Legacy integration complete",
+          "User adoption >80%"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "c17586be-ced7-433b-971b-6e5f35ddc40e",
+        "name": "Data and Analytics Platform",
+        "description": "Build enterprise data platform",
+        "work_packages": [
+          "WP3: Data Platform"
+        ],
+        "start_date": "2025-Q2",
+        "end_date": "2026-Q1",
+        "budget": 380000,
+        "business_value": "medium",
+        "strategic_alignment": "Enables data-driven decision making",
+        "success_criteria": [
+          "Data lake operational",
+          "Real-time analytics available",
+          "Data migration complete"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ]
+  },
+  "implementation_strategy": {
+    "approach": "phased",
+    "rationale": "Phased approach reduces risk, allows for iterative feedback, and ensures stable foundation before building dependent systems",
+    "phases": [
+      {
+        "phase": "Foundation (Q1 2025 - Q2 2025)",
+        "focus": "Cloud infrastructure and security",
+        "deliverables": [
+          "Cloud platform",
+          "Security framework",
+          "DevOps foundation"
+        ]
+      },
+      {
+        "phase": "Core Systems (Q2 2025 - Q4 2025)",
+        "focus": "Data platform and application development",
+        "deliverables": [
+          "Data lake",
+          "Customer portal",
+          "API gateway"
+        ]
+      },
+      {
+        "phase": "Integration (Q4 2025 - Q1 2026)",
+        "focus": "Legacy integration and testing",
+        "deliverables": [
+          "Legacy connectors",
+          "End-to-end testing",
+          "Performance optimization"
+        ]
+      },
+      {
+        "phase": "Deployment (Q1 2026 - Q2 2026)",
+        "focus": "Production deployment and training",
+        "deliverables": [
+          "Production rollout",
+          "User training",
+          "Support transition"
+        ]
+      }
+    ],
+    "critical_success_factors": [
+      "Executive sponsorship and governance",
+      "Adequate funding and resource allocation",
+      "Strong change management",
+      "Technical expertise and vendor support",
+      "Clear communication and stakeholder engagement"
+    ],
+    "governance_approach": "Architecture Board oversight with monthly reviews and phase-gate approvals",
+    "defined_at": "2025-10-22T17:58:51.503093"
+  },
+  "transition_architectures": [
+    {
+      "id": "4a98fd0a-b3eb-4d75-aa76-5287828bdd4f",
+      "name": "Transition Architecture 1.0",
+      "description": "Foundation phase completion",
+      "version": "1.0",
+      "timeframe": "Q2 2025",
+      "capabilities_delivered": [
+        "Cloud infrastructure",
+        "Security foundation",
+        "DevOps tooling"
+      ],
+      "architecture_state": {
+        "cloud": "operational",
+        "security": "compliant",
+        "automation": "50%"
+      },
+      "dependencies": [],
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "bc592431-4303-469b-9248-394cd66795d2",
+      "name": "Transition Architecture 2.0",
+      "description": "Core systems deployment",
+      "version": "2.0",
+      "timeframe": "Q4 2025",
+      "capabilities_delivered": [
+        "Data platform",
+        "Customer portal beta",
+        "API management"
+      ],
+      "architecture_state": {
+        "cloud": "optimized",
+        "security": "enhanced",
+        "automation": "75%",
+        "data": "operational"
+      },
+      "dependencies": [
+        "Transition Architecture 1.0"
+      ],
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "0825b453-f9ce-4cd6-9fad-f48b56f99560",
+      "name": "Transition Architecture 3.0",
+      "description": "Full integration",
+      "version": "3.0",
+      "timeframe": "Q1 2026",
+      "capabilities_delivered": [
+        "Legacy integration",
+        "Full portal features",
+        "Analytics"
+      ],
+      "architecture_state": {
+        "cloud": "optimized",
+        "security": "enhanced",
+        "automation": "95%",
+        "data": "optimized",
+        "integration": "complete"
+      },
+      "dependencies": [
+        "Transition Architecture 2.0"
+      ],
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "3385196d-4bb3-44dc-9186-c169078c55a4",
+      "name": "Target Architecture",
+      "description": "Final production state",
+      "version": "4.0",
+      "timeframe": "Q2 2026",
+      "capabilities_delivered": [
+        "All capabilities operational",
+        "Full automation",
+        "Continuous improvement"
+      ],
+      "architecture_state": {
+        "cloud": "optimized",
+        "security": "zero-trust",
+        "automation": "100%",
+        "data": "optimized",
+        "integration": "complete",
+        "monitoring": "comprehensive"
+      },
+      "dependencies": [
+        "Transition Architecture 3.0"
+      ],
+      "created_at": "2025-10-22T17:58:51.503093"
+    }
+  ],
+  "constraints": {
+    "business": [
+      {
+        "id": "2daaa560-53b8-4840-ae18-7e07d4fdf499",
+        "type": "budget",
+        "description": "Total budget limited to $2.5M for year 1",
+        "impact": "high",
+        "mitigation": "Prioritize critical work packages and negotiate vendor discounts",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "62e784f6-4b6f-4371-899b-7eca87b74037",
+        "type": "time",
+        "description": "Must deliver customer portal by Q2 2026 for business critical deadline",
+        "impact": "high",
+        "mitigation": "Adopt phased approach with MVP delivery",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "782734ed-263c-479b-aad9-739a6a122f73",
+        "type": "resource",
+        "description": "Limited availability of cloud architects (only 2 available)",
+        "impact": "medium",
+        "mitigation": "Engage external consultants and provide training",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "39bc1b08-f5de-4696-887e-0269c5317e8e",
+        "type": "regulatory",
+        "description": "NORA compliance required for all systems",
+        "impact": "high",
+        "mitigation": "Include compliance reviews in all phases",
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ],
+    "technical": [
+      {
+        "id": "e7ee5732-1db0-40d3-9b74-a48cd00b004c",
+        "type": "technology",
+        "description": "Must integrate with legacy mainframe systems",
+        "impact": "high",
+        "mitigation": "Use proven integration patterns and adapters",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "406161b6-a942-498b-b5f6-68ac7519ab5d",
+        "type": "integration",
+        "description": "APIs must support 100ms response time SLA",
+        "impact": "medium",
+        "mitigation": "Implement caching and optimize data access",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "ca1bbb6e-0892-42d7-8e09-b581fa939ee7",
+        "type": "security",
+        "description": "Zero-trust architecture required",
+        "impact": "high",
+        "mitigation": "Phased security implementation with foundation first",
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ]
+  },
+  "dependencies": [
+    {
+      "id": "034c6d4f-3cf7-4fe3-8915-ac3cbbc9706c",
+      "from": "Customer Portal",
+      "to": "Identity and Access Management",
+      "type": "technical",
+      "description": "Portal requires SSO and user authentication",
+      "criticality": "critical",
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "3a923db6-9976-4636-b1b3-400f5087b792",
+      "from": "Data Lake",
+      "to": "Cloud Infrastructure",
+      "type": "technical",
+      "description": "Data lake requires cloud storage and compute",
+      "criticality": "critical",
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "87c58d0f-6569-4ccb-8297-08bd611a8e68",
+      "from": "Legacy Integration",
+      "to": "API Gateway",
+      "type": "technical",
+      "description": "Legacy systems connect through API gateway",
+      "criticality": "high",
+      "created_at": "2025-10-22T17:58:51.503093"
+    },
+    {
+      "id": "f2907d5d-65c6-4e49-bb63-9ce1b0ddfc03",
+      "from": "Application Modernization",
+      "to": "Security Foundation",
+      "type": "business",
+      "description": "Cannot deploy applications without security controls",
+      "criticality": "critical",
+      "created_at": "2025-10-22T17:58:51.503093"
+    }
+  ],
+  "risks": {
+    "summary": {
+      "total_risks": 6,
+      "high_risks": 3,
+      "medium_risks": 3,
+      "low_risks": 0,
+      "by_category": {
+        "technical": 2,
+        "organizational": 2,
+        "financial": 1,
+        "external": 1
+      }
+    },
+    "risks": [
+      {
+        "id": "c40a2861-083d-496a-aca4-f21cb7bd758e",
+        "name": "Cloud Migration Complexity",
+        "category": "technical",
+        "description": "Complexity of migrating legacy workloads to cloud",
+        "probability": "medium",
+        "impact": "high",
+        "risk_score": 6,
+        "mitigation_strategy": "Pilot migration with non-critical systems first, engage cloud migration specialists",
+        "owner": "Cloud Architect",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "20a74256-3294-469b-9a8b-b5f68c6955de",
+        "name": "Resource Availability",
+        "category": "organizational",
+        "description": "Key technical resources may not be available when needed",
+        "probability": "medium",
+        "impact": "medium",
+        "risk_score": 4,
+        "mitigation_strategy": "Build resource pipeline early, cross-train team members",
+        "owner": "Program Manager",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "7d50aa53-e131-44bf-b192-1d16a0828d3d",
+        "name": "Integration Challenges",
+        "category": "technical",
+        "description": "Legacy system integration may be more complex than anticipated",
+        "probability": "high",
+        "impact": "medium",
+        "risk_score": 6,
+        "mitigation_strategy": "Conduct integration POC early, allocate buffer time",
+        "owner": "Integration Lead",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "9918954b-18f9-4c5d-9513-cf1b10c4dffd",
+        "name": "Budget Overrun",
+        "category": "financial",
+        "description": "Costs may exceed estimates",
+        "probability": "medium",
+        "impact": "high",
+        "risk_score": 6,
+        "mitigation_strategy": "Establish contingency reserve, monthly budget reviews",
+        "owner": "Finance Director",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "90c41d6f-25b9-4602-8245-f317a05cb57a",
+        "name": "Change Resistance",
+        "category": "organizational",
+        "description": "Users may resist new systems and processes",
+        "probability": "medium",
+        "impact": "medium",
+        "risk_score": 4,
+        "mitigation_strategy": "Strong change management program, early user involvement",
+        "owner": "Change Manager",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "122d8586-dbec-45d9-83d7-36af0eb0bda0",
+        "name": "Security Compliance",
+        "category": "external",
+        "description": "May not achieve NORA compliance on schedule",
+        "probability": "low",
+        "impact": "high",
+        "risk_score": 3,
+        "mitigation_strategy": "Engage compliance experts, conduct early assessments",
+        "owner": "Security Officer",
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ],
+    "readiness": [
+      {
+        "id": "8b68a9e4-d993-46ab-8fba-56028f1f2816",
+        "area": "organizational",
+        "current_state": "Traditional IT operations",
+        "target_state": "DevOps culture and practices",
+        "gap_description": "Need cultural shift and new skills",
+        "readiness_level": "needs_improvement",
+        "actions_required": [
+          "DevOps training",
+          "Hire cloud-native engineers",
+          "Agile transformation"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "144de385-e1e4-4bd2-9760-357687e7efc1",
+        "area": "technical",
+        "current_state": "On-premises infrastructure",
+        "target_state": "Cloud-native architecture",
+        "gap_description": "Limited cloud experience in team",
+        "readiness_level": "needs_improvement",
+        "actions_required": [
+          "Cloud certifications",
+          "POC projects",
+          "Vendor workshops"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "498ca5f6-1bae-4a45-800f-bb4e51370843",
+        "area": "financial",
+        "current_state": "Adequate budget allocated",
+        "target_state": "Multi-year funding commitment",
+        "gap_description": "Year 1 budget secured, future years pending",
+        "readiness_level": "ready",
+        "actions_required": [
+          "Demonstrate ROI",
+          "Secure multi-year commitment"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "b392136c-42c8-4d48-9b7c-209673a015b7",
+        "area": "cultural",
+        "current_state": "Risk-averse culture",
+        "target_state": "Innovation and experimentation",
+        "gap_description": "Organization cautious about change",
+        "readiness_level": "needs_improvement",
+        "actions_required": [
+          "Leadership communications",
+          "Quick wins",
+          "Celebrate successes"
+        ],
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ]
+  },
+  "financial": {
+    "costs": [
+      {
+        "id": "cb7d7a4f-26bd-4946-8046-7299638fc329",
+        "category": "development",
+        "description": "Custom application development",
+        "one_time_cost": 1100000,
+        "annual_recurring_cost": 0,
+        "year_1_cost": 1100000,
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "96b18558-781d-4e12-a6c2-697c2fae9129",
+        "category": "infrastructure",
+        "description": "Cloud infrastructure and services",
+        "one_time_cost": 350000,
+        "annual_recurring_cost": 200000,
+        "year_1_cost": 550000,
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "2777e2dd-6281-40e8-9e2e-c227a1068b8e",
+        "category": "licensing",
+        "description": "COTS and SaaS licenses",
+        "one_time_cost": 250000,
+        "annual_recurring_cost": 150000,
+        "year_1_cost": 400000,
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "4524af01-5761-4f17-b96a-a10cc5f30e09",
+        "category": "operations",
+        "description": "Managed services and support",
+        "one_time_cost": 0,
+        "annual_recurring_cost": 180000,
+        "year_1_cost": 180000,
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "d2759c43-9891-4bbb-ab40-f947fbdb8dd7",
+        "category": "training",
+        "description": "User and technical training",
+        "one_time_cost": 200000,
+        "annual_recurring_cost": 50000,
+        "year_1_cost": 250000,
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ],
+    "benefits": [
+      {
+        "id": "2fa8fbdb-1982-44a1-8b18-a1f4c9bade3b",
+        "category": "cost_savings",
+        "description": "Reduced infrastructure and operations costs",
+        "annual_value": 400000,
+        "timeframe_years": 5,
+        "total_value": 2000000,
+        "confidence_level": "high",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "4700adf8-170f-4e13-bdec-e74bc8bfcbd0",
+        "category": "efficiency_gain",
+        "description": "Process automation and efficiency improvements",
+        "annual_value": 600000,
+        "timeframe_years": 5,
+        "total_value": 3000000,
+        "confidence_level": "high",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "c3d7a784-5b41-4728-aef2-66baba296518",
+        "category": "revenue_increase",
+        "description": "New digital channels and improved customer experience",
+        "annual_value": 800000,
+        "timeframe_years": 5,
+        "total_value": 4000000,
+        "confidence_level": "medium",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "7729d538-b6d9-4565-bafa-808c9f6567fb",
+        "category": "risk_reduction",
+        "description": "Improved security and compliance",
+        "annual_value": 200000,
+        "timeframe_years": 5,
+        "total_value": 1000000,
+        "confidence_level": "medium",
+        "created_at": "2025-10-22T17:58:51.503093"
+      },
+      {
+        "id": "6ace45f7-099b-4e5a-b3aa-02357b1e0242",
+        "category": "cost_savings",
+        "description": "Reduced customer onboarding costs",
+        "annual_value": 300000,
+        "timeframe_years": 5,
+        "total_value": 1500000,
+        "confidence_level": "high",
+        "created_at": "2025-10-22T17:58:51.503093"
+      }
+    ],
+    "roi": {
+      "analysis_period_years": 5,
+      "total_one_time_costs": 1900000,
+      "total_annual_recurring_costs": 580000,
+      "total_costs": 4800000,
+      "total_benefits": 11500000,
+      "net_benefit": 6700000,
+      "roi_percentage": 139.58333333333331,
+      "payback_period_years": 0.8260869565217391,
+      "calculated_at": "2025-10-22T17:58:51.503093"
+    }
+  },
+  "deliverables": {
+    "implementation_plan": {
+      "id": "dda12729-cd14-411f-8040-6f3af44f5b75",
+      "name": "Implementation and Migration Plan",
+      "description": "Complete implementation strategy and migration plan",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T17:58:51.503093",
+      "updated_at": "2025-10-22T17:58:51.503093",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "opportunities_solutions",
+      "format": "json",
+      "references_count": 0
+    },
+    "solution_catalog": {
+      "id": "00ea8868-f195-4cb6-aded-b19b3e47b060",
+      "name": "Solution Building Blocks Catalog",
+      "description": "Catalog of all solution building blocks",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T17:58:51.503093",
+      "updated_at": "2025-10-22T17:58:51.503093",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "opportunities_solutions",
+      "format": "json",
+      "references_count": 0
+    },
+    "business_case": {
+      "id": "0fc5e126-65c4-4f09-8a84-50e5ca7257a7",
+      "name": "Business Case and ROI Analysis",
+      "description": "Financial justification and risk assessment",
+      "owner": null,
+      "metadata": {},
+      "created_at": "2025-10-22T17:58:51.503093",
+      "updated_at": "2025-10-22T17:58:51.503093",
+      "version": "1.0.0",
+      "artifact_type": "catalog",
+      "phase": "opportunities_solutions",
+      "format": "json",
+      "references_count": 0
+    }
+  },
+  "completed_at": "2025-10-22T17:58:51.503093"
+}
