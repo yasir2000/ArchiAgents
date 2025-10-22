@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\examples\phase_d_technology_example.py", line 33, in <module>
+    adm_cycle.configure_phase_a("Architecture Vision", "Drive digital transformation")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ADMCycle' object has no attribute 'configure_phase_a'
+================================================================================
+TOGAF Phase D: Technology Architecture - Complete Example
+================================================================================
+
+Creating ADM Cycle...
