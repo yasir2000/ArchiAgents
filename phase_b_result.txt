@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\examples\phase_b_business_example.py", line 587, in <module>
+    results = create_business_architecture_example()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\examples\phase_b_business_example.py", line 91, in create_business_architecture_example
+    customer_mgmt = phase_b.create_capability_hierarchy(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\adm\phase_b_business.py", line 177, in create_capability_hierarchy
+    capability = BusinessCapability(
+                 ^^^^^^^^^^^^^^^^^^^
+TypeError: BusinessCapability.__init__() got an unexpected keyword argument 'parent_capability_id'
+================================================================================
+TOGAF Phase B: Business Architecture - Complete Example
+Digital Transformation Initiative 2025
+================================================================================
+
+Creating ADM Cycle...
+Setting up Phase A (Architecture Vision)...
+✓ Phase A configured
+
+Initializing Phase B (Business Architecture)...
+
+================================================================================
+STEP 1: Define Business Capability Model (3 Levels)
+================================================================================
+
+📊 Level 1 Capabilities (Strategic):

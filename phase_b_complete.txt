@@ -1,0 +1,139 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\examples\phase_b_business_example.py", line 587, in <module>
+    results = create_business_architecture_example()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\examples\phase_b_business_example.py", line 502, in create_business_architecture_example
+    results = phase_b.execute()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\adm\phase_b_business.py", line 683, in execute
+    business_doc = self.generate_business_architecture_document()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yasir\Code\ArchiAgents\togaf_framework\adm\phase_b_business.py", line 577, in generate_business_architecture_document
+    artifact = ArchitectureArtifact(
+               ^^^^^^^^^^^^^^^^^^^^^
+TypeError: ArchitectureArtifact.__init__() got an unexpected keyword argument 'layer'
+================================================================================
+TOGAF Phase B: Business Architecture - Complete Example
+Digital Transformation Initiative 2025
+================================================================================
+
+Creating ADM Cycle...
+Setting up Phase A (Architecture Vision)...
+✓ Phase A configured
+
+Initializing Phase B (Business Architecture)...
+
+================================================================================
+STEP 1: Define Business Capability Model (3 Levels)
+================================================================================
+
+📊 Level 1 Capabilities (Strategic):
+  ✓ Customer Management (Maturity: defined)
+  ✓ Product & Service Management (Maturity: managed)
+  ✓ Operations Management (Maturity: defined)
+  ✓ Digital Channel Management (Maturity: initial)
+
+📊 Level 2 Capabilities (Tactical):
+  ✓ Customer Onboarding → Parent: Customer Management
+  ✓ Customer Service & Support → Parent: Customer Management
+  ✓ Order Fulfillment → Parent: Operations Management
+  ✓ Mobile Application → Parent: Digital Channel Management
+  ✓ Web Portal → Parent: Digital Channel Management
+
+📊 Level 3 Capabilities (Operational):
+  ✓ KYC Verification → Parent: Customer Onboarding
+
+================================================================================
+CAPABILITY MATURITY ASSESSMENT
+================================================================================
+Total Capabilities: 10
+Average Maturity Level: 1.90
+Target Maturity: 4
+
+Capabilities by Maturity:
+  defined: 5
+  managed: 2
+  initial: 3
+
+================================================================================
+STEP 2: Define Business Processes with Automation Tracking
+================================================================================
+
+🔄 Core Business Processes:
+  ✓ Customer Registration - Automation: 0.45% - Steps: 5
+  ✓ Order Processing - Automation: 0.6%
+
+🔧 Supporting Processes:
+  ✓ Customer Support - Automation: 0.35%
+  ✓ Inventory Management - Automation: 0.55%
+
+📋 Management Processes:
+  ✓ Performance Monitoring - Automation: 0.8%
+  ✓ Compliance Reporting - Automation: 0.65%
+
+================================================================================
+AUTOMATION ASSESSMENT
+================================================================================
+Total Processes: 6
+Current Average Automation: 56.7%
+Target Average Automation: 70.0%
+Manual Processes (<25%): 0
+Partially Automated (25-75%): 5
+Highly Automated (>75%): 1
+Gap to Target: 13.3%
+
+================================================================================
+STEP 3: Define Value Streams
+================================================================================
+✓ Customer Acquisition value stream defined
+✓ Order to Cash value stream defined
+
+================================================================================
+STEP 4: Define Business KPIs (Aligned with Repository Targets)
+================================================================================
+✓ System Availability: 99.5% → 99.9% (Gap: 0.4%)
+✓ API Response Time: 200ms → 100ms (Gap: 100ms)
+✓ Process Automation: 45% → 70% (Gap: 25%)
+✓ Event Processing: 1M → 10M events/hour (Gap: 9M)
+✓ Onboarding Time: 150min → 5min (Gap: 145min)
+✓ NORA Compliance: 75% → 95% (Gap: 20%)
+
+================================================================================
+STEP 5: Define Baseline and Target Architectures
+================================================================================
+✓ Baseline (As-Is) Architecture documented
+✓ Target (To-Be) Architecture documented
+
+================================================================================
+STEP 6: Perform Comprehensive Gap Analysis
+================================================================================
+
+📊 Capability Gaps:
+  Capabilities needing improvement: 10
+    • Customer Management: defined → optimized (Priority: critical)
+    • Product & Service Management: managed → optimized (Priority: critical)
+    • Operations Management: defined → optimized (Priority: high)
+
+📊 Process Automation Gaps:
+  Processes needing automation: 5
+    • Customer Registration: 45% → 70% (Gap: 25%)
+    • Order Processing: 60% → 70% (Gap: 10%)
+    • Customer Support: 35% → 70% (Gap: 35%)
+
+📊 Overall Automation Gap:
+  Current: 56.7%
+  Target: 70.0%
+  Gap: 13.3%
+  Processes needing work: 5
+
+📊 Maturity Gap:
+  Current Average: 1.90
+  Target Average: 4.00
+  Gap: 2.10
+  Capabilities needing work: 10
+
+================================================================================
+STEP 7: Execute Phase B
+================================================================================
