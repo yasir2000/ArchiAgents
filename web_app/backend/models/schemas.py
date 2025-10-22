@@ -49,18 +49,17 @@ class ModelStatus(str, Enum):
 # User Schemas
 class UserBase(BaseModel):
     email: EmailStr
-    username: str
-    full_name: Optional[str] = None
+    name: str = Field(..., min_length=1, max_length=255)
     role: UserRole = UserRole.VIEWER
 
 
 class UserCreate(UserBase):
-    password: str = Field(..., min_length=8)
+    password: str = Field(..., min_length=8, max_length=72)
 
 
 class UserUpdate(BaseModel):
     email: Optional[EmailStr] = None
-    full_name: Optional[str] = None
+    name: Optional[str] = None
     role: Optional[UserRole] = None
     is_active: Optional[bool] = None
 

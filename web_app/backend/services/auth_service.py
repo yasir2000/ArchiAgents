@@ -24,12 +24,16 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify password against hash"""
-    return pwd_context.verify(plain_password, hashed_password)
+    # Truncate password to 72 bytes for bcrypt compatibility
+    password_bytes = plain_password.encode('utf-8')[:72]
+    return pwd_context.verify(password_bytes, hashed_password)
 
 
 def get_password_hash(password: str) -> str:
-    """Hash password"""
-    return pwd_context.hash(password)
+    """Hash password (truncate to 72 bytes for bcrypt)"""
+    # Truncate password to 72 bytes for bcrypt compatibility
+    password_bytes = password.encode('utf-8')[:72]
+    return pwd_context.hash(password_bytes)
 
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
@@ -45,11 +49,6 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     return encoded_jwt
 
 
-async def get_user_by_username(username: str, db: Session) -> Optional[database.User]:
-    """Get user by username"""
-    return db.query(database.User).filter(database.User.username == username).first()
-
-
 async def get_user_by_email(email: str, db: Session) -> Optional[database.User]:
     """Get user by email"""
     return db.query(database.User).filter(database.User.email == email).first()
@@ -57,14 +56,7 @@ async def get_user_by_email(email: str, db: Session) -> Optional[database.User]:
 
 async def create_user(user: schemas.UserCreate, db: Session) -> database.User:
     """Create a new user"""
-    # Check if user already exists
-    existing_user = await get_user_by_username(user.username, db)
-    if existing_user:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username already registered"
-        )
-    
+    # Check if user already exists by email
     existing_email = await get_user_by_email(user.email, db)
     if existing_email:
         raise HTTPException(
@@ -76,8 +68,7 @@ async def create_user(user: schemas.UserCreate, db: Session) -> database.User:
     hashed_password = get_password_hash(user.password)
     db_user = database.User(
         email=user.email,
-        username=user.username,
-        full_name=user.full_name,
+        name=user.name,
         hashed_password=hashed_password,
         role=user.role,
         created_at=datetime.utcnow(),
@@ -91,20 +82,20 @@ async def create_user(user: schemas.UserCreate, db: Session) -> database.User:
     return db_user
 
 
-async def authenticate_user(username: str, password: str, db: Session) -> schemas.Token:
+async def authenticate_user(email: str, password: str, db: Session) -> schemas.Token:
     """Authenticate user and return token"""
-    user = await get_user_by_username(username, db)
+    user = await get_user_by_email(email, db)
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
     
     if not verify_password(password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or password",
+            detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
     
@@ -121,7 +112,7 @@ async def authenticate_user(username: str, password: str, db: Session) -> schema
     # Create access token
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": user.username},
+        data={"sub": user.email},
         expires_delta=access_token_expires
     )
     
@@ -142,13 +133,13 @@ async def get_current_user(token: str, db: Session) -> database.User:
     
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")
-        if username is None:
+        email: str = payload.get("sub")
+        if email is None:
             raise credentials_exception
     except JWTError:
         raise credentials_exception
     
-    user = await get_user_by_username(username, db)
+    user = await get_user_by_email(email, db)
     if user is None:
         raise credentials_exception
     
@@ -181,8 +172,8 @@ async def update_user(user_id: int, user_update: schemas.UserUpdate, db: Session
             )
         user.email = user_update.email
     
-    if user_update.full_name is not None:
-        user.full_name = user_update.full_name
+    if user_update.name is not None:
+        user.name = user_update.name
     
     if user_update.role is not None:
         user.role = user_update.role

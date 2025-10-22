@@ -102,7 +102,8 @@ async def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 @app.post("/api/auth/login", response_model=schemas.Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    """Login and get access token"""
+    """Login and get access token (username field should contain email)"""
+    # OAuth2PasswordRequestForm uses 'username' field, but we treat it as email
     return await auth_service.authenticate_user(form_data.username, form_data.password, db)
 
 
