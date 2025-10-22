@@ -1,10 +1,22 @@
-# Enterprise Architecture Project
+# Enterprise Architecture Project with AI Multi-Agent System
 
 ## Project Overview
 
-This comprehensive Enterprise Architecture project implements a world-class architectural framework following **TOGAF 10 ADM** methodology, **ArchiMate 3.2** modeling standards, and **Saudi National Overall Reference Architecture (NORA)** compliance requirements. The project delivers a complete enterprise architecture blueprint supporting digital transformation, cloud modernization, and Vision 2030 strategic objectives.
+This comprehensive Enterprise Architecture project implements a world-class architectural framework following **TOGAF 10 ADM** methodology, **ArchiMate 3.2** modeling standards, and **Saudi National Overall Reference Architecture (NORA)** compliance requirements. 
+
+**NEW: 🤖 AI Multi-Agent System** - Autonomous AI agents powered by **multiple LLM providers** (OpenAI, Claude, Gemini, and **FREE local models via Ollama**) that automate architecture development workflows using LangGraph and CrewAI.
+
+The project delivers a complete enterprise architecture blueprint supporting digital transformation, cloud modernization, and Vision 2030 strategic objectives.
 
 ## Architecture Frameworks
+
+### 🤖 AI Multi-Agent System (NEW!)
+- **Multi-Provider LLM Support:** OpenAI, Anthropic Claude, Google Gemini, Azure OpenAI, Hugging Face
+- **FREE Local Models:** Ollama integration (Llama 3.1, Mistral, Mixtral, Phi-2, CodeLlama) - 100% private, zero cost
+- **Autonomous Workflows:** LangGraph for phase-specific intelligent workflows
+- **Collaborative Teams:** CrewAI for multi-agent collaboration
+- **20+ Specialized Roles:** Architecture analysts, business analysts, security experts, and more
+- **Runtime Provider Switching:** Change LLMs dynamically based on task complexity
 
 ### 🏗️ TOGAF 10 Architecture Development Method (ADM)
 - **Complete 8-Phase Implementation:** Architecture Vision through Change Management
@@ -28,22 +40,48 @@ This comprehensive Enterprise Architecture project implements a world-class arch
 
 ```
 enterprise-architecture-project/
-├── TOGAF-Phases/                    # Complete TOGAF ADM Implementation
-│   ├── Phase-A-Architecture-Vision/
-│   ├── Phase-B-Business-Architecture/
-│   ├── Phase-C-Information-Systems/
-│   ├── Phase-D-Technology-Architecture/
-│   ├── Phase-E-Opportunities-Solutions/
-│   ├── Phase-F-Migration-Planning/
-│   ├── Phase-G-Implementation-Governance/
-│   └── Phase-H-Architecture-Change-Management/
-├── Business-Architecture/            # Comprehensive Business Models
-│   ├── Business-Process-Models.md
-│   ├── Value-Stream-Maps.md
-│   ├── Customer-Journey-Maps.md
-│   ├── Business-Function-Decomposition.md
-│   ├── ArchiMate-Business-Layer.md
-│   └── Organizational-Role-Definitions.md
+├── togaf_framework/                 # 🤖 AI-Powered TOGAF Framework (NEW!)
+│   ├── ai_agents/                   # Multi-Provider AI Agent System
+│   │   ├── llm_providers.py         # LLM provider abstraction (OpenAI, Claude, Gemini, Ollama)
+│   │   ├── agent_base.py            # 20+ specialized agent roles
+│   │   ├── langgraph_workflows.py   # Autonomous TOGAF workflows
+│   │   ├── crewai_teams.py          # Collaborative AI teams
+│   │   └── ai_orchestrator.py       # Master AI orchestration
+│   ├── phases/                      # Complete TOGAF implementation
+│   │   ├── phase_a.py               # Architecture Vision
+│   │   ├── phase_b.py               # Business Architecture
+│   │   ├── phase_c.py               # Information Systems
+│   │   ├── phase_d.py               # Technology Architecture
+│   │   ├── phase_e.py               # Opportunities & Solutions
+│   │   ├── phase_f.py               # Migration Planning
+│   │   ├── phase_g.py               # Implementation Governance
+│   │   └── phase_h.py               # Architecture Change Management
+│   ├── orchestration/               # Framework orchestration
+│   │   └── togaf_orchestrator.py
+│   └── examples/                    # Demo applications
+│       ├── complete_digital_banking_example.py
+│       ├── llm_providers_demo.py    # Multi-provider demo (NEW!)
+│       └── ai_agent_demo.py         # AI agent demonstration
+├── Phase-A-Architecture-Vision/     # TOGAF ADM Documentation
+│   ├── Strategic-Deliverables/
+│   └── Governance-Deliverables/
+├── Phase-B-Business-Architecture/
+│   ├── ArchiMate-Business-Models/
+│   ├── Business-Process-Deliverables/
+│   └── Organizational-Deliverables/
+├── Phase-C-Information-Systems/
+│   ├── Application-Architecture/
+│   └── Data-Architecture/
+├── Phase-D-Technology-Architecture/
+│   └── Infrastructure-Deliverables/
+├── Phase-E-Opportunities-Solutions/
+│   └── Solution-Deliverables/
+├── Phase-F-Migration-Planning/
+│   └── Migration-Deliverables/
+├── Phase-G-Implementation-Governance/
+│   └── Governance-Deliverables/
+├── Phase-H-Architecture-Change-Management/
+│   └── Change-Management-Deliverables/
 ├── ArchiMate-Models/                # Complete ArchiMate Repository
 │   ├── Strategy-Layer-Models.md
 │   ├── Business-Layer-Models.md
@@ -57,10 +95,26 @@ enterprise-architecture-project/
 │   ├── Business-Intelligence-Strategy.md
 │   ├── Security-Patterns.md
 │   └── Governance-Frameworks.md
+├── NORA-Compliance/                 # Saudi NORA Framework
+│   ├── Saudi-NORA-Framework-Implementation-Guide.md
+│   └── NORA-Compliance-Assessment-Report.md
+├── LLM_PROVIDERS_GUIDE.md          # 🤖 Multi-Provider LLM Guide (NEW!)
 └── README.md                        # This navigation guide
 ```
 
 ## Key Deliverables
+
+### 🤖 AI Multi-Agent System (NEW!)
+Complete autonomous architecture development platform:
+- **Multi-Provider LLM Support:**
+  - **Cloud:** OpenAI (GPT-4, GPT-3.5), Anthropic (Claude 3), Google (Gemini), Azure OpenAI, Hugging Face
+  - **Local (FREE & PRIVATE):** Ollama (Llama 3.1, Mistral, Mixtral, Phi-2, CodeLlama, DeepSeek)
+- **20+ Specialized Agent Roles:** Architecture analysts, business analysts, security experts, data architects
+- **24+ AI Capabilities:** Pattern recognition, impact analysis, stakeholder analysis, risk assessment
+- **LangGraph Workflows:** Autonomous phase-specific intelligent workflows
+- **CrewAI Teams:** Collaborative multi-agent architecture teams
+- **Runtime Provider Switching:** Dynamically change LLMs based on task complexity
+- **Zero-Cost Option:** Use free local models via Ollama for complete privacy
 
 ### 📋 TOGAF Phase Documentation
 Complete enterprise architecture methodology implementation with:
