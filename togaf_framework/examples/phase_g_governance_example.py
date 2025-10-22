@@ -337,13 +337,13 @@ def main():
     contract_docs = phase_g.generate_architecture_contract_documentation()
     
     print(f"\n1. {oversight_report.name}")
-    print(f"   Type: {oversight_report.deliverable_type.value}")
+    print(f"   Phase: {oversight_report.phase}")
     
     print(f"\n2. {compliance_report.name}")
-    print(f"   Type: {compliance_report.deliverable_type.value}")
+    print(f"   Phase: {compliance_report.phase}")
     
     print(f"\n3. {contract_docs.name}")
-    print(f"   Type: {contract_docs.deliverable_type.value}")
+    print(f"   Phase: {contract_docs.phase}")
     
     # Save results
     print("\n" + "=" * 60)

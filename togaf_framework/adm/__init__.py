@@ -14,6 +14,7 @@ from .phase_d_technology import PhaseDTechnologyArchitecture
 from .phase_e_opportunities import PhaseEOpportunitiesAndSolutions
 from .phase_f_migration import PhaseFMigrationPlanning
 from .phase_g_governance import PhaseGImplementationGovernance
+from .phase_h_change import PhaseHChangeManagement
 
 __all__ = [
     'ADMCycle',
@@ -25,4 +26,5 @@ __all__ = [
     'PhaseEOpportunitiesAndSolutions',
     'PhaseFMigrationPlanning',
     'PhaseGImplementationGovernance',
+    'PhaseHChangeManagement',
 ]
