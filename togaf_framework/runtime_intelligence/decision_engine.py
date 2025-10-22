@@ -375,10 +375,22 @@ class RuntimeDecisionEngine:
                 "risk_level": 0.2,
                 "cost": 0.2,
             },
-            DecisionType.TECHNICAL: {
+            DecisionType.TACTICAL: {
+                "feasibility": 0.3,
                 "technical_fit": 0.3,
+                "complexity": 0.2,
+                "cost": 0.2,
+            },
+            DecisionType.TECHNICAL: {
+                "technical_fit": 0.4,
                 "feasibility": 0.3,
                 "complexity": 0.2,
+                "cost": 0.1,
+            },
+            DecisionType.ORGANIZATIONAL: {
+                "feasibility": 0.3,
+                "strategic_alignment": 0.3,
+                "risk_level": 0.2,
                 "cost": 0.2,
             },
             DecisionType.GOVERNANCE: {
@@ -387,13 +399,36 @@ class RuntimeDecisionEngine:
                 "strategic_alignment": 0.2,
                 "cost": 0.2,
             },
+            DecisionType.RISK: {
+                "risk_level": 0.4,
+                "feasibility": 0.3,
+                "cost": 0.2,
+                "technical_fit": 0.1,
+            },
+            DecisionType.COMPLIANCE: {
+                "feasibility": 0.4,
+                "risk_level": 0.3,
+                "cost": 0.2,
+                "technical_fit": 0.1,
+            },
+            DecisionType.OPTIMIZATION: {
+                "technical_fit": 0.3,
+                "complexity": 0.3,
+                "cost": 0.2,
+                "feasibility": 0.2,
+            },
+        }
+        
+        # Default weights for unknown types
+        default_weights = {
+            "strategic_alignment": 0.25,
+            "technical_fit": 0.25,
+            "feasibility": 0.25,
+            "risk_level": 0.25,
         }
         
         # Get weights for decision type
-        type_weights = weights.get(
-            context.decision_type,
-            weights[DecisionType.TACTICAL]
-        )
+        type_weights = weights.get(context.decision_type, default_weights)
         
         # Calculate score
         score = 0.0
