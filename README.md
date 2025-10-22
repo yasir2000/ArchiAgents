@@ -1,3 +1,5 @@
+<img width="312" height="183" alt="image" src="https://github.com/user-attachments/assets/5f9eb2f5-3821-46c3-b984-d5dcc15f045a" />
+
 # Enterprise Architecture Project with AI Multi-Agent System
 
 ## Project Overview
