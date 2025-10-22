@@ -97,7 +97,15 @@ async def health_check():
 @app.post("/api/auth/register", response_model=schemas.User, status_code=status.HTTP_201_CREATED)
 async def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     """Register a new user"""
-    return await auth_service.create_user(user, db)
+    try:
+        return await auth_service.create_user(user, db)
+    except HTTPException:
+        # Re-raise known HTTP exceptions
+        raise
+    except Exception as e:
+        # Surface unexpected errors during development
+        print(f"[/api/auth/register] Unexpected error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/api/auth/login", response_model=schemas.Token)
@@ -408,6 +416,11 @@ async def search(
 async def startup_event():
     """Initialize database and create tables"""
     database_manager.init_db()
+    try:
+        import inspect
+        print(f"[startup] database module: {inspect.getfile(database)}")
+    except Exception:
+        pass
     print("✓ Database initialized")
     print("✓ ArchiAgents Web Platform started")
     print("📊 API Documentation: http://localhost:8000/api/docs")

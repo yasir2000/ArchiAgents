@@ -22,18 +22,21 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 
+def _truncate_for_bcrypt(secret: str) -> str:
+    """Truncate a unicode string to at most 72 bytes for bcrypt safely."""
+    b = secret.encode("utf-8")[:72]
+    # Decode back to str, ignoring any split multi-byte sequences
+    return b.decode("utf-8", errors="ignore")
+
+
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify password against hash"""
-    # Truncate password to 72 bytes for bcrypt compatibility
-    password_bytes = plain_password.encode('utf-8')[:72]
-    return pwd_context.verify(password_bytes, hashed_password)
+    return pwd_context.verify(_truncate_for_bcrypt(plain_password), hashed_password)
 
 
 def get_password_hash(password: str) -> str:
     """Hash password (truncate to 72 bytes for bcrypt)"""
-    # Truncate password to 72 bytes for bcrypt compatibility
-    password_bytes = password.encode('utf-8')[:72]
-    return pwd_context.hash(password_bytes)
+    return pwd_context.hash(_truncate_for_bcrypt(password))
 
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
@@ -65,7 +68,14 @@ async def create_user(user: schemas.UserCreate, db: Session) -> database.User:
         )
     
     # Create new user
-    hashed_password = get_password_hash(user.password)
+    try:
+        hashed_password = get_password_hash(user.password)
+    except Exception as e:
+        print(f"[auth_service.get_password_hash] Error hashing password: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Password hashing failed: {str(e)}"
+        )
     db_user = database.User(
         email=user.email,
         name=user.name,
@@ -75,9 +85,18 @@ async def create_user(user: schemas.UserCreate, db: Session) -> database.User:
         updated_at=datetime.utcnow()
     )
     
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
+    try:
+        db.add(db_user)
+        db.commit()
+        db.refresh(db_user)
+    except Exception as e:
+        # Rollback and surface the error for easier debugging during development
+        db.rollback()
+        print(f"[auth_service.create_user] Error creating user: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to create user: {str(e)}"
+        )
     
     return db_user
 

@@ -194,7 +194,7 @@ async def generate_model(
             status=schemas.ModelStatus.DRAFT,
             elements=elements,
             relationships=relationships,
-            metadata=generated_model.get("metadata", {})
+            model_metadata=generated_model.get("metadata", {})
         )
         
         db_model = database.ArchitectureModel(
@@ -205,7 +205,7 @@ async def generate_model(
             status=model_create.status,
             elements=[elem.dict() for elem in model_create.elements],
             relationships=[rel.dict() for rel in model_create.relationships],
-            metadata=model_create.metadata,
+            model_metadata=model_create.model_metadata,
             version="1.0.0",
             generated_by_ai=True,
             ai_generation_prompt=request.prompt,
@@ -274,7 +274,7 @@ async def suggest_improvements(
         "type": model.model_type.value,
         "elements": model.elements,
         "relationships": model.relationships,
-        "metadata": model.metadata
+        "metadata": model.model_metadata
     }
     
     try:

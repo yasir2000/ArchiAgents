@@ -224,7 +224,7 @@ async def create_model(
         status=model.status,
         elements=[elem.dict() for elem in model.elements],
         relationships=[rel.dict() for rel in model.relationships],
-        metadata=model.metadata,
+        model_metadata=model.model_metadata,
         version="1.0.0",
         generated_by_ai=False,
         created_by=user_id,
@@ -296,8 +296,8 @@ async def update_model(
         model.elements = [elem.dict() for elem in model_update.elements]
     if model_update.relationships is not None:
         model.relationships = [rel.dict() for rel in model_update.relationships]
-    if model_update.metadata is not None:
-        model.metadata = model_update.metadata
+    if model_update.model_metadata is not None:
+        model.model_metadata = model_update.model_metadata
     
     model.updated_at = datetime.utcnow()
     
@@ -365,7 +365,7 @@ async def export_model(
         "type": model.model_type.value,
         "elements": model.elements,
         "relationships": model.relationships,
-        "metadata": model.metadata
+        "metadata": model.model_metadata
     }
     
     # Select exporter

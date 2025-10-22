@@ -153,7 +153,8 @@ class ArchitectureModelBase(BaseModel):
     status: ModelStatus = ModelStatus.DRAFT
     elements: List[ModelElement] = []
     relationships: List[ModelRelationship] = []
-    metadata: Dict[str, Any] = {}
+    # Map ORM attribute `model_metadata` to API field `metadata`
+    model_metadata: Dict[str, Any] = Field(default_factory=dict, alias="metadata", serialization_alias="metadata")
 
 
 class ArchitectureModelCreate(ArchitectureModelBase):
@@ -166,7 +167,8 @@ class ArchitectureModelUpdate(BaseModel):
     status: Optional[ModelStatus] = None
     elements: Optional[List[ModelElement]] = None
     relationships: Optional[List[ModelRelationship]] = None
-    metadata: Optional[Dict[str, Any]] = None
+    # Accept/emit `metadata` in API while mapping to ORM `model_metadata`
+    model_metadata: Optional[Dict[str, Any]] = Field(default=None, alias="metadata", serialization_alias="metadata")
 
 
 class ArchitectureModel(ArchitectureModelBase):
