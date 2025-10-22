@@ -1,0 +1,159 @@
+{
+  "executive_summary": {
+    "total_ai_executions": 1,
+    "ai_efficiency_gain": "11.78s average",
+    "recommendations_generated": 0,
+    "automation_coverage": {
+      "langgraph_workflows": 0,
+      "crewai_collaborations": 0
+    }
+  },
+  "ai_recommendations": [],
+  "agent_performance": {
+    "Phase A": {
+      "team_id": "phase_a_vision",
+      "team_name": "Architecture Vision Team",
+      "team_size": 5,
+      "team_lead": "Vision Analyst",
+      "total_capabilities": 10,
+      "tasks_completed": 0,
+      "tasks_failed": 0,
+      "success_rate": 0,
+      "agent_performance": [
+        {
+          "agent_name": "Vision Analyst",
+          "role": "vision_analyst",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Stakeholder Analyst",
+            "Principles Architect",
+            "Requirements Engineer",
+            "Quality Reviewer"
+          ]
+        },
+        {
+          "agent_name": "Stakeholder Analyst",
+          "role": "stakeholder_analyst",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Vision Analyst",
+            "Principles Architect",
+            "Requirements Engineer",
+            "Quality Reviewer"
+          ]
+        },
+        {
+          "agent_name": "Principles Architect",
+          "role": "vision_analyst",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Vision Analyst",
+            "Stakeholder Analyst",
+            "Requirements Engineer",
+            "Quality Reviewer"
+          ]
+        },
+        {
+          "agent_name": "Requirements Engineer",
+          "role": "requirements_engineer",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Vision Analyst",
+            "Stakeholder Analyst",
+            "Principles Architect",
+            "Quality Reviewer"
+          ]
+        },
+        {
+          "agent_name": "Quality Reviewer",
+          "role": "quality_reviewer",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Vision Analyst",
+            "Stakeholder Analyst",
+            "Principles Architect",
+            "Requirements Engineer",
+            "Business Architect"
+          ]
+        }
+      ]
+    },
+    "Phase B": {
+      "team_id": "phase_b_business",
+      "team_name": "Business Architecture Team",
+      "team_size": 2,
+      "team_lead": "Business Architect",
+      "total_capabilities": 7,
+      "tasks_completed": 0,
+      "tasks_failed": 0,
+      "success_rate": 0,
+      "agent_performance": [
+        {
+          "agent_name": "Business Architect",
+          "role": "business_architect",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Quality Reviewer"
+          ]
+        },
+        {
+          "agent_name": "Quality Reviewer",
+          "role": "quality_reviewer",
+          "tasks_completed": 0,
+          "tasks_failed": 0,
+          "total_tasks": 0,
+          "success_rate": 0,
+          "average_execution_time": 0,
+          "collaborators": [
+            "Vision Analyst",
+            "Stakeholder Analyst",
+            "Principles Architect",
+            "Requirements Engineer",
+            "Business Architect"
+          ]
+        }
+      ]
+    }
+  },
+  "execution_history": [
+    {
+      "phase": "Phase A",
+      "execution_mode": [],
+      "ai_outputs": {
+        "crewai_error": "litellm.AuthenticationError: AuthenticationError: OpenAIException - The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable"
+      },
+      "recommendations": [],
+      "timestamp": "2025-10-22T19:31:36.309641",
+      "duration_seconds": 11.776823
+    }
+  ],
+  "capabilities": {
+    "workflow_orchestration": false,
+    "collaborative_agents": true,
+    "llm_provider": "gpt-4"
+  }
+}

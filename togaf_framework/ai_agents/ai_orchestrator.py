@@ -69,7 +69,7 @@ class AIAgentOrchestrator:
         self.togaf_orchestrator = TOGAFADMOrchestrator(
             enterprise_name=enterprise_name,
             project_name=project_name,
-            scope=scope
+            architecture_scope=scope
         )
         
         self.llm_provider = llm_provider or "gpt-4"
