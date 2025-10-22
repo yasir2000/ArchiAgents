@@ -128,7 +128,8 @@ from cli.commands import (
     init_project, list_projects, project_status, delete_project,
     run_phase, list_phases, phase_status, reset_phase,
     analyze_architecture, make_decision, check_health, intelligence_report,
-    list_scenarios, describe_scenario, run_scenario
+    list_scenarios, describe_scenario, run_scenario,
+    generate_model, list_models, validate_model, export_model, improve_model
 )
 
 # Register project commands
@@ -148,6 +149,13 @@ intelligence.add_command(analyze_architecture, name='analyze')
 intelligence.add_command(make_decision, name='decide')
 intelligence.add_command(check_health, name='health')
 intelligence.add_command(intelligence_report, name='report')
+
+# Register model commands
+model.add_command(generate_model, name='generate')
+model.add_command(list_models, name='list')
+model.add_command(validate_model, name='validate')
+model.add_command(export_model, name='export')
+model.add_command(improve_model, name='improve')
 
 # Register scenario commands
 scenario.add_command(list_scenarios, name='list')
