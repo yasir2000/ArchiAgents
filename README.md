@@ -49,6 +49,11 @@ enterprise-architecture-project/
 │   │   ├── langgraph_workflows.py   # Autonomous TOGAF workflows
 │   │   ├── crewai_teams.py          # Collaborative AI teams
 │   │   └── ai_orchestrator.py       # Master AI orchestration
+│   ├── runtime_intelligence/        # 🧠 Runtime Intelligence Layer (NEW!)
+│   │   ├── decision_engine.py       # AI-driven decision making
+│   │   ├── archimate_intelligence.py # ArchiMate analysis and insights
+│   │   ├── togaf_advisor.py         # Phase-specific guidance
+│   │   └── autonomous_controller.py # Autonomous operations
 │   ├── phases/                      # Complete TOGAF implementation
 │   │   ├── phase_a.py               # Architecture Vision
 │   │   ├── phase_b.py               # Business Architecture
@@ -64,6 +69,17 @@ enterprise-architecture-project/
 │       ├── complete_digital_banking_example.py
 │       ├── llm_providers_demo.py    # Multi-provider demo (NEW!)
 │       └── ai_agent_demo.py         # AI agent demonstration
+├── model_generation/                # 📊 Model Generation System (NEW!)
+│   ├── engine.py                    # 21 model types (ArchiMate, BPMN, UML)
+│   ├── formats.py                   # 6 export formats (Text, Mermaid, Kroki, Archi, GoJS, EA)
+│   └── ai_modeler.py                # AI-powered intelligent generation
+├── cli/                             # 🎨 Comprehensive CLI (NEW!)
+│   ├── main.py                      # CLI entry point
+│   └── commands/                    # 20+ commands across 8 groups
+│       ├── project.py               # Project management (4 commands)
+│       ├── phase.py                 # TOGAF phases (4 commands)
+│       ├── intelligence.py          # AI intelligence (4 commands)
+│       └── model.py                 # Model generation (5 commands)
 ├── Phase-A-Architecture-Vision/     # TOGAF ADM Documentation
 │   ├── Strategic-Deliverables/
 │   └── Governance-Deliverables/
@@ -101,6 +117,8 @@ enterprise-architecture-project/
 │   ├── Saudi-NORA-Framework-Implementation-Guide.md
 │   └── NORA-Compliance-Assessment-Report.md
 ├── LLM_PROVIDERS_GUIDE.md          # 🤖 Multi-Provider LLM Guide (NEW!)
+├── MODEL_GENERATION_GUIDE.md       # 📊 Model Generation Guide (NEW!)
+├── model_examples.sh                # 📊 30+ Model Generation Examples (NEW!)
 └── README.md                        # This navigation guide
 ```
 
@@ -117,6 +135,28 @@ Complete autonomous architecture development platform:
 - **CrewAI Teams:** Collaborative multi-agent architecture teams
 - **Runtime Provider Switching:** Dynamically change LLMs based on task complexity
 - **Zero-Cost Option:** Use free local models via Ollama for complete privacy
+
+### 📊 Model Generation System (NEW! 🚀)
+Comprehensive enterprise architecture model generation with AI intelligence:
+- **21 Model Types:**
+  - **ArchiMate 3.0:** Strategy, Business, Application, Technology, Physical, Implementation, Multi-Layer
+  - **BPMN 2.0:** Process, Collaboration, Choreography models
+  - **UML 2.0:** All 12 diagram types (Class, Sequence, Use Case, Activity, State Machine, Component, Deployment, Object, Package, Timing, Communication, Interaction Overview)
+- **6 Output Formats:**
+  - **Text:** Markdown documentation with full element and relationship details
+  - **Mermaid:** GitHub/GitLab-compatible diagram syntax
+  - **Kroki:** PlantUML format for advanced rendering services
+  - **Archi:** Archi tool XML for direct import
+  - **GoJS:** Interactive web visualization JSON
+  - **Enterprise Architect:** Sparx EA XMI 1.1 format
+- **AI-Powered Generation:**
+  - Context-aware model creation from TOGAF phases
+  - Intelligent element and relationship generation
+  - Standards validation (ArchiMate, TOGAF, UML compliance)
+  - Model improvement suggestions (completeness, relationships, best practices)
+  - Compliance scoring (0-100 scale)
+- **CLI Commands:** generate, list, validate, export, improve
+- **10x Productivity:** Accelerate architecture modeling from days to minutes
 
 ### 📋 TOGAF Phase Documentation
 Complete enterprise architecture methodology implementation with:
