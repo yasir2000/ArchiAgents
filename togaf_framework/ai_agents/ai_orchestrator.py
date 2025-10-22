@@ -8,6 +8,7 @@ This orchestrator:
 - Manages agent teams for each TOGAF phase
 - Coordinates workflow execution using LangGraph
 - Delegates complex tasks to CrewAI teams
+- Supports multiple LLM providers (OpenAI, Anthropic, Google, Ollama, etc.)
 - Tracks progress and performance
 - Generates intelligent recommendations
 - Learns from execution patterns
@@ -22,6 +23,10 @@ from ..adm.togaf_orchestrator import TOGAFADMOrchestrator
 from ..ai_agents.agent_base import (
     TOGAFAgent, AgentTeam, AgentRole, AgentCapability,
     AgentTask, TaskPriority
+)
+from ..ai_agents.llm_providers import (
+    LLMProviderManager, LLMProvider, LLMConfig,
+    get_recommended_models, get_provider_info
 )
 from ..ai_agents.langgraph_workflows import (
     PhaseWorkflowGraph, PhaseAWorkflowGraph, PhaseBWorkflowGraph,
@@ -51,6 +56,7 @@ class AIAgentOrchestrator:
         project_name: str,
         scope: str,
         llm_provider: Optional[str] = None,
+        llm_config: Optional[Dict[str, Any]] = None,
         enable_langgraph: bool = True,
         enable_crewai: bool = True
     ):
@@ -61,7 +67,15 @@ class AIAgentOrchestrator:
             enterprise_name: Name of the enterprise
             project_name: Name of the architecture project
             scope: Scope of the architecture work
-            llm_provider: LLM model to use (default: gpt-4)
+            llm_provider: LLM model/provider to use. Supports:
+                - OpenAI: "gpt-4", "gpt-3.5-turbo"
+                - Azure: "azure/gpt-4"
+                - Anthropic: "claude-3-opus-20240229", "claude-3-sonnet-20240229"
+                - Google: "gemini-pro", "gemini-1.5-pro"
+                - Ollama (local): "llama3.1", "mistral", "mixtral", "phi-2"
+                - Hugging Face: "org/model-name"
+                Default: "gpt-4"
+            llm_config: Additional LLM configuration (api_key, temperature, etc.)
             enable_langgraph: Enable LangGraph workflows
             enable_crewai: Enable CrewAI teams
         """
@@ -72,7 +86,22 @@ class AIAgentOrchestrator:
             architecture_scope=scope
         )
         
-        self.llm_provider = llm_provider or "gpt-4"
+        # LLM configuration
+        self.llm_model_name = llm_provider or "gpt-4"
+        self.llm_config = llm_config or {}
+        self.llm_provider_type = LLMProviderManager.auto_detect_provider(self.llm_model_name)
+        
+        # Create LLM instance
+        self.llm = None
+        try:
+            self.llm = LLMProviderManager.create_llm(
+                model_name=self.llm_model_name,
+                **self.llm_config
+            )
+        except Exception as e:
+            print(f"⚠️  Could not initialize LLM: {e}")
+            print(f"   AI features will be limited without LLM")
+        
         self.enable_langgraph = enable_langgraph and LANGGRAPH_AVAILABLE
         self.enable_crewai = enable_crewai and CREWAI_AVAILABLE
         
@@ -409,14 +438,106 @@ class AIAgentOrchestrator:
             "capabilities": {
                 "workflow_orchestration": self.enable_langgraph,
                 "collaborative_agents": self.enable_crewai,
-                "llm_provider": self.llm_provider
+                "llm_provider": self.llm_model_name,
+                "llm_provider_type": self.llm_provider_type.value
             }
         }
+    
+    # LLM Provider Management Methods
+    
+    def get_llm_info(self) -> Dict[str, Any]:
+        """Get information about current LLM provider"""
+        return {
+            "model": self.llm_model_name,
+            "provider": self.llm_provider_type.value,
+            "configured": self.llm is not None,
+            "config": self.llm_config
+        }
+    
+    def switch_llm_provider(
+        self,
+        model_name: str,
+        **config
+    ) -> bool:
+        """
+        Switch to a different LLM provider
+        
+        Args:
+            model_name: New model name (e.g., "llama3.1", "claude-3-opus")
+            **config: Additional configuration
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            # Create new LLM instance
+            new_llm = LLMProviderManager.create_llm(
+                model_name=model_name,
+                **config
+            )
+            
+            # Update configuration
+            self.llm = new_llm
+            self.llm_model_name = model_name
+            self.llm_config = config
+            self.llm_provider_type = LLMProviderManager.auto_detect_provider(model_name)
+            
+            print(f"✅ Switched to {model_name} ({self.llm_provider_type.value})")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to switch provider: {e}")
+            return False
+    
+    @staticmethod
+    def list_available_providers() -> List[str]:
+        """List all available LLM providers"""
+        return LLMProviderManager.get_available_providers()
+    
+    @staticmethod
+    def get_recommended_models_by_use_case() -> Dict[str, List[str]]:
+        """Get recommended models by use case"""
+        return get_recommended_models()
+    
+    @staticmethod
+    def get_all_provider_info() -> Dict[str, Dict[str, Any]]:
+        """Get information about all providers"""
+        return get_provider_info()
+    
+    @staticmethod
+    def print_provider_guide():
+        """Print helpful guide for LLM providers"""
+        print("\n" + "=" * 80)
+        print("LLM PROVIDER GUIDE")
+        print("=" * 80)
+        
+        info = get_provider_info()
+        for provider_id, details in info.items():
+            print(f"\n📦 {details['name']}")
+            print(f"   Models: {', '.join(details['models'][:3])}")
+            print(f"   Install: {details['requires']}")
+            if details.get('setup'):
+                print(f"   Setup: {details['setup']}")
+            print(f"   API Key: {details['api_key']}")
+            print(f"   Pricing: {details['pricing']}")
+        
+        print("\n" + "=" * 80)
+        print("RECOMMENDED MODELS BY USE CASE")
+        print("=" * 80)
+        
+        recommendations = get_recommended_models()
+        for use_case, models in recommendations.items():
+            print(f"\n🎯 {use_case.replace('_', ' ').title()}:")
+            for model in models:
+                print(f"   • {model}")
+        
+        print("\n" + "=" * 80)
     
     def __repr__(self) -> str:
         return (
             f"AIAgentOrchestrator("
             f"enterprise='{self.togaf_orchestrator.enterprise_name}', "
+            f"llm='{self.llm_model_name}', "
             f"langgraph={self.enable_langgraph}, "
             f"crewai={self.enable_crewai}, "
             f"teams={len(self.agent_teams)})"
