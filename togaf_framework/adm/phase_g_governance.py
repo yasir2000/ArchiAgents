@@ -595,8 +595,8 @@ class PhaseGImplementationGovernance(ADMPhase):
         
         return Deliverable(
             name="Implementation Oversight Report",
+            phase="Phase G",
             description="Comprehensive oversight report for architecture implementation",
-            deliverable_type=DeliverableType.REPORT,
             content=content
         )
     
@@ -615,8 +615,8 @@ class PhaseGImplementationGovernance(ADMPhase):
         
         return Deliverable(
             name="Compliance Assessment Report",
+            phase="Phase G",
             description="Architecture compliance assessment findings and recommendations",
-            deliverable_type=DeliverableType.REPORT,
             content=content
         )
     
@@ -631,7 +631,7 @@ class PhaseGImplementationGovernance(ADMPhase):
         
         return Deliverable(
             name="Architecture Contract Documentation",
+            phase="Phase G",
             description="Formal architecture contracts with development teams",
-            deliverable_type=DeliverableType.DOCUMENT,
             content=content
         )
