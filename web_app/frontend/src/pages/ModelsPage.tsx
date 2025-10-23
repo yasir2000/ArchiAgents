@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Plus, Grid3x3, List, Search, Filter, FileBox, Sparkles } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { apiClient } from '@/lib/api-client';
+import { mockModels } from '@/lib/mock-data';
 import { ArchitectureModel, ModelType, ModelStatus } from '@/types';
 
 type ViewMode = 'grid' | 'list';
@@ -20,8 +21,13 @@ export default function ModelsPage() {
   const { data: models, isLoading } = useQuery<ArchitectureModel[]>({
     queryKey: ['models'],
     queryFn: async () => {
-      const response = await apiClient.get('/models');
-      return response.data;
+      try {
+        const response = await apiClient.get('/models');
+        return response.data;
+      } catch (error) {
+        console.warn('API not available, using mock data');
+        return mockModels as any;
+      }
     },
   });
 
