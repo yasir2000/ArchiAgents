@@ -31,6 +31,7 @@ export default function ModelEditorPage() {
   }, [id]);
 
   const handleSave = async (modelData: any) => {
+    if (!id) return;
 
     setSaving(true);
     try {
@@ -58,6 +59,7 @@ export default function ModelEditorPage() {
     );
   }
 
+  if (!model) {
     return (
       <div className="flex items-center justify-center h-full">
         <div className="text-center">
