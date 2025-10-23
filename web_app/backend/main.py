@@ -10,7 +10,7 @@ from pathlib import Path
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from fastapi import FastAPI, HTTPException, Depends, status, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, Depends, status, WebSocket, WebSocketDisconnect, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -409,6 +409,283 @@ async def search(
 ):
     """Search across projects and models"""
     return await model_service.search(search_request, current_user.id, db)
+
+
+# ============================================================================
+# PASSWORD CHANGE
+# ============================================================================
+
+@app.post("/api/auth/change-password")
+async def change_password(
+    password_change: schemas.PasswordChangeRequest,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Change user password"""
+    # Verify current password
+    if not auth_service.verify_password(password_change.current_password, current_user.hashed_password):
+        raise HTTPException(status_code=400, detail="Current password is incorrect")
+    
+    # Update password
+    current_user.hashed_password = auth_service.get_password_hash(password_change.new_password)
+    current_user.updated_at = database.datetime.utcnow()
+    db.commit()
+    
+    return {"success": True, "message": "Password changed successfully"}
+
+
+# ============================================================================
+# NOTIFICATIONS
+# ============================================================================
+
+@app.get("/api/notifications", response_model=List[schemas.Notification])
+async def get_notifications(
+    unread_only: bool = False,
+    limit: int = 50,
+    offset: int = 0,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get user notifications"""
+    from services.notification_service import NotificationService
+    return NotificationService.get_user_notifications(db, current_user.id, unread_only, limit, offset)
+
+
+@app.get("/api/notifications/unread-count")
+async def get_unread_count(
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get count of unread notifications"""
+    from services.notification_service import NotificationService
+    count = NotificationService.get_unread_count(db, current_user.id)
+    return {"count": count}
+
+
+@app.put("/api/notifications/{notification_id}/read", response_model=schemas.Notification)
+async def mark_notification_read(
+    notification_id: int,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Mark notification as read"""
+    from services.notification_service import NotificationService
+    return NotificationService.mark_as_read(db, notification_id, current_user.id)
+
+
+@app.put("/api/notifications/read-all")
+async def mark_all_notifications_read(
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Mark all notifications as read"""
+    from services.notification_service import NotificationService
+    count = NotificationService.mark_all_as_read(db, current_user.id)
+    return {"success": True, "count": count}
+
+
+@app.delete("/api/notifications/{notification_id}")
+async def delete_notification(
+    notification_id: int,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Delete a notification"""
+    from services.notification_service import NotificationService
+    NotificationService.delete_notification(db, notification_id, current_user.id)
+    return {"success": True}
+
+
+@app.delete("/api/notifications/clear-all")
+async def clear_all_notifications(
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Clear all notifications"""
+    from services.notification_service import NotificationService
+    count = NotificationService.clear_all_notifications(db, current_user.id)
+    return {"success": True, "count": count}
+
+
+# ============================================================================
+# USER MANAGEMENT
+# ============================================================================
+
+@app.get("/api/users", response_model=List[schemas.UserListItem])
+async def list_users(
+    skip: int = 0,
+    limit: int = 100,
+    role: Optional[database.UserRole] = None,
+    search: Optional[str] = None,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """List all users (admin only)"""
+    if current_user.role != database.UserRole.ADMIN:
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    from services.user_management_service import UserManagementService
+    return UserManagementService.list_users(db, skip, limit, role, search)
+
+
+@app.put("/api/users/{user_id}/role", response_model=schemas.User)
+async def update_user_role(
+    user_id: int,
+    role_update: schemas.RoleUpdateRequest,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Update user role (admin only)"""
+    from services.user_management_service import UserManagementService
+    return UserManagementService.update_user_role(db, user_id, role_update.role, current_user)
+
+
+@app.delete("/api/users/{user_id}")
+async def delete_user(
+    user_id: int,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Delete user (admin only)"""
+    from services.user_management_service import UserManagementService
+    UserManagementService.delete_user(db, user_id, current_user)
+    return {"success": True, "message": "User deleted successfully"}
+
+
+@app.post("/api/users/invite", response_model=schemas.UserInvitation, status_code=status.HTTP_201_CREATED)
+async def invite_user(
+    invitation: schemas.UserInviteRequest,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Invite a new user (admin only)"""
+    from services.user_management_service import UserManagementService
+    return UserManagementService.create_invitation(db, invitation.email, invitation.role, current_user)
+
+
+@app.get("/api/users/invitations", response_model=List[schemas.UserInvitation])
+async def list_invitations(
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """List pending invitations"""
+    from services.user_management_service import UserManagementService
+    return UserManagementService.list_pending_invitations(db, current_user)
+
+
+@app.post("/api/users/accept-invitation", response_model=schemas.User, status_code=status.HTTP_201_CREATED)
+async def accept_invitation(
+    accept_request: schemas.AcceptInvitationRequest,
+    db: Session = Depends(get_db)
+):
+    """Accept user invitation and create account"""
+    from services.user_management_service import UserManagementService
+    return UserManagementService.accept_invitation(
+        db, accept_request.token, accept_request.name, accept_request.password
+    )
+
+
+# ============================================================================
+# MODEL IMPORT
+# ============================================================================
+
+@app.post("/api/models/import", response_model=schemas.ModelImportResponse, status_code=status.HTTP_201_CREATED)
+async def import_model(
+    file: UploadFile = File(...),
+    project_id: int = Form(...),
+    name: str = Form(...),
+    format: str = Form(...),
+    description: Optional[str] = Form(None),
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Import model from file"""
+    from services.import_service import ModelImportService
+    return await ModelImportService.import_model(
+        db, file, project_id, name, format, description, current_user
+    )
+
+
+# ============================================================================
+# COLLABORATION ENHANCEMENTS
+# ============================================================================
+
+@app.get("/api/collaboration/participants/{model_id}", response_model=schemas.CollaborationParticipantsResponse)
+async def get_collaboration_participants(
+    model_id: int,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get participants in a collaboration session"""
+    # Get active session for model
+    session = db.query(database.CollaborationSession).filter(
+        database.CollaborationSession.model_id == model_id,
+        database.CollaborationSession.is_active == True
+    ).first()
+    
+    if not session:
+        return schemas.CollaborationParticipantsResponse(
+            model_id=model_id,
+            session_id=0,
+            participants=[],
+            total_count=0
+        )
+    
+    # Get participant details
+    participants = []
+    for user_id in session.participants or []:
+        user = db.query(database.User).filter(database.User.id == user_id).first()
+        if user:
+            participants.append(schemas.CollaborationParticipant(
+                user_id=user.id,
+                name=user.name,
+                email=user.email,
+                status="active",
+                joined_at=session.created_at
+            ))
+    
+    return schemas.CollaborationParticipantsResponse(
+        model_id=model_id,
+        session_id=session.id,
+        participants=participants,
+        total_count=len(participants)
+    )
+
+
+@app.get("/api/collaboration/activity/{model_id}", response_model=schemas.CollaborationActivityResponse)
+async def get_collaboration_activity(
+    model_id: int,
+    limit: int = 20,
+    current_user: database.User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get recent collaboration activity for a model"""
+    # Get activity logs for the model
+    activities = db.query(database.ActivityLog).filter(
+        database.ActivityLog.resource_type == "model",
+        database.ActivityLog.resource_id == model_id
+    ).order_by(database.ActivityLog.created_at.desc()).limit(limit).all()
+    
+    # Convert to collaboration activity format
+    activity_list = []
+    for activity in activities:
+        user = db.query(database.User).filter(database.User.id == activity.user_id).first()
+        if user:
+            activity_list.append(schemas.CollaborationActivity(
+                id=str(activity.id),
+                user_id=user.id,
+                user_name=user.name,
+                action=activity.action,
+                description=f"{user.name} {activity.action.replace('_', ' ')}",
+                timestamp=activity.created_at,
+                element_id=activity.details.get("element_id") if activity.details else None
+            ))
+    
+    return schemas.CollaborationActivityResponse(
+        model_id=model_id,
+        activities=activity_list,
+        total_count=len(activity_list)
+    )
 
 
 # Initialize database on startup
