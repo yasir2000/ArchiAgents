@@ -13,6 +13,9 @@ interface AuthState {
   fetchCurrentUser: () => Promise<void>
 }
 
+// Clear any old stored auth state and set demo token
+localStorage.setItem('access_token', 'demo-token-for-testing')
+
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
