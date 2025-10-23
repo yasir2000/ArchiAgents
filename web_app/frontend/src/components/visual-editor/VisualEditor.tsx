@@ -1,10 +1,9 @@
 import { useState, useRef, useCallback } from 'react';
 import * as go from 'gojs';
-import DiagramCanvas from './DiagramCanvas';
+import DiagramCanvas, { DiagramCanvasRef } from './DiagramCanvas';
 import ElementPalette, { PaletteElement } from './ElementPalette';
 import PropertiesPanel from './PropertiesPanel';
 import EditorToolbar from './EditorToolbar';
-import { ReactDiagram } from 'gojs-react';
 
 interface VisualEditorProps {
   modelId: string;
@@ -21,7 +20,7 @@ export default function VisualEditor({
   onSave,
   readOnly = false
 }: VisualEditorProps) {
-  const diagramRef = useRef<ReactDiagram>(null);
+  const diagramRef = useRef<DiagramCanvasRef>(null);
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [modelData, setModelData] = useState<any>(initialData || null);
   const [canUndo, setCanUndo] = useState(false);
@@ -41,10 +40,20 @@ export default function VisualEditor({
 
   // Handle element selection from palette
   const handleElementSelect = useCallback((element: PaletteElement) => {
+    console.log('Element selected:', element);
     const diagram = getDiagram();
-    if (!diagram || readOnly) return;
+    console.log('Diagram instance:', diagram);
+    
+    if (!diagram || readOnly) {
+      console.warn('Cannot add node: diagram not ready or readOnly', { diagram, readOnly });
+      return;
+    }
 
     diagram.startTransaction('add node');
+    
+    // Calculate center position
+    const centerX = diagram.viewportBounds.centerX;
+    const centerY = diagram.viewportBounds.centerY;
     
     const data = {
       key: diagram.model.nodeDataArray.length + 1,
@@ -54,11 +63,13 @@ export default function VisualEditor({
       figure: element.figure,
       color: element.color,
       borderColor: element.borderColor,
-      loc: '0 0' // Will be placed at diagram center
+      loc: `${centerX} ${centerY}` // Place at viewport center
     };
 
+    console.log('Adding node with data:', data);
     diagram.model.addNodeData(data);
     diagram.commitTransaction('add node');
+    console.log('Node added successfully');
   }, [getDiagram, readOnly]);
 
   // Handle property changes
@@ -204,6 +215,7 @@ export default function VisualEditor({
         {/* Center - Diagram Canvas */}
         <div className="flex-1 p-4">
           <DiagramCanvas
+            ref={diagramRef}
             modelData={modelData}
             onModelChange={handleModelChange}
             modelType={modelType}

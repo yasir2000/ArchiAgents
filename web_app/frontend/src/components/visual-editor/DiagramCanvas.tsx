@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
 import * as go from 'gojs';
 import { ReactDiagram } from 'gojs-react';
 import './diagram-canvas.css';
@@ -10,14 +10,23 @@ interface DiagramCanvasProps {
   readOnly?: boolean;
 }
 
-export default function DiagramCanvas({
+export interface DiagramCanvasRef {
+  getDiagram: () => go.Diagram | null;
+}
+
+const DiagramCanvas = forwardRef<DiagramCanvasRef, DiagramCanvasProps>(({
   modelData,
   onModelChange,
   modelType = 'archimate',
   readOnly = false
-}: DiagramCanvasProps) {
+}, ref) => {
   const diagramRef = useRef<ReactDiagram>(null);
   const [diagram, setDiagram] = useState<go.Diagram | null>(null);
+
+  // Expose getDiagram method to parent
+  useImperativeHandle(ref, () => ({
+    getDiagram: () => diagram
+  }));
 
   // Initialize diagram
   const initDiagram = (): go.Diagram => {
@@ -29,6 +38,7 @@ export default function DiagramCanvas({
       'allowDelete': !readOnly,
       'allowMove': !readOnly,
       'isReadOnly': readOnly,
+      'initialContentAlignment': go.Spot.Center,
       'layout': $(go.LayeredDigraphLayout, {
         direction: 90,
         layerSpacing: 50,
@@ -377,4 +387,8 @@ export default function DiagramCanvas({
       />
     </div>
   );
-}
+});
+
+DiagramCanvas.displayName = 'DiagramCanvas';
+
+export default DiagramCanvas;
