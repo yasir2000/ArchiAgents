@@ -323,9 +323,13 @@ export function NotificationBellIcon() {
 
   useEffect(() => {
     fetchUnreadCount();
-    // Poll for new notifications every 30 seconds
-    const interval = setInterval(fetchUnreadCount, 30000);
-    return () => clearInterval(interval);
+    // DEMO MODE: Disable polling to avoid 401 errors
+    const isDemoMode = true;
+    if (!isDemoMode) {
+      // Poll for new notifications every 30 seconds
+      const interval = setInterval(fetchUnreadCount, 30000);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   const fetchUnreadCount = async () => {
@@ -333,7 +337,8 @@ export function NotificationBellIcon() {
       const response = await apiClient.get('/notifications/unread-count');
       setUnreadCount(response.data.count || 0);
     } catch (error) {
-      console.error('Failed to fetch unread count:', error);
+      // Demo mode: Set mock count
+      setUnreadCount(2);
     }
   };
 

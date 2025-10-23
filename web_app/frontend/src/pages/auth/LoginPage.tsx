@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../stores/authStore'
 import { handleApiError } from '../../lib/api-client'
@@ -7,7 +7,14 @@ import { Mail, Lock, Sparkles, Brain, Layers } from 'lucide-react'
 
 export default function LoginPage() {
   const navigate = useNavigate()
-  const { login, isLoading } = useAuthStore()
+  const { login, isLoading, isAuthenticated } = useAuthStore()
+  
+  // Auto-redirect if already authenticated (demo mode)
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/')
+    }
+  }, [isAuthenticated, navigate])
   const [formData, setFormData] = useState({
     username: '',
     password: '',

@@ -25,7 +25,9 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
-    if (error.response?.status === 401) {
+    // DEMO MODE: Don't redirect on 401, just log and continue
+    const isDemoMode = true
+    if (error.response?.status === 401 && !isDemoMode) {
       localStorage.removeItem('access_token')
       window.location.href = '/login'
     }

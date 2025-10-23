@@ -13,9 +13,6 @@ interface AuthState {
   fetchCurrentUser: () => Promise<void>
 }
 
-// Clear any old stored auth state and set demo token
-localStorage.setItem('access_token', 'demo-token-for-testing')
-
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
@@ -89,17 +86,23 @@ export const useAuthStore = create<AuthState>()(
       name: 'auth-storage',
       partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
       // Force demo state on hydration
-      onRehydrateStorage: () => (state) => {
-        if (state) {
-          state.isAuthenticated = true
-          state.user = {
-            id: 1,
-            email: 'demo@test.com',
-            username: 'demo',
-            full_name: 'Demo User',
-            role: 'architect',
-            is_active: true,
-            created_at: new Date().toISOString()
+      onRehydrateStorage: () => {
+        // Set demo token for API calls
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('access_token', 'demo-token-for-testing')
+        }
+        return (state) => {
+          if (state) {
+            state.isAuthenticated = true
+            state.user = {
+              id: 1,
+              email: 'demo@test.com',
+              username: 'demo',
+              full_name: 'Demo User',
+              role: 'architect',
+              is_active: true,
+              created_at: new Date().toISOString()
+            }
           }
         }
       }
