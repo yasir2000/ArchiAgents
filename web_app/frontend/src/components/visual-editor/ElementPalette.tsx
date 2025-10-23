@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Circle, Diamond, Square, Hexagon, Triangle, Database, Cloud, Server, Users, FileText, Settings, Workflow, GitBranch } from 'lucide-react';
+import { Box, Circle, Diamond, Square, Database, Cloud, Server, Users, FileText, Settings, Workflow } from 'lucide-react';
 
 export interface PaletteElement {
   id: string;
