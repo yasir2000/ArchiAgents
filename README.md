@@ -41,6 +41,24 @@ ArchiAgents features a complete, enterprise-grade branding system:
 
 ---
 
+## 🧪 NEW: CLI Real-World Business Scenarios
+
+**7 comprehensive end-to-end scenarios** demonstrating ArchiAgents CLI with realistic enterprise challenges:
+
+1. 🏦 **Digital Banking Transformation** - $15M GlobalBank modernization (18 months)
+2. ☁️ **E-Commerce Cloud Migration** - $8M AWS migration (12 months)
+3. 🏥 **Healthcare Digital Platform** - $20M Saudi NORA-compliant system (24 months)
+4. 🔧 **Microservices Modernization** - $10M monolith decomposition (15 months)
+5. 🌆 **Smart City IoT Platform** - $50M 50,000+ device integration (36 months)
+6. 🤖 **AI-Driven Decision Making** - Multi-provider AI agent collaboration
+7. 🔗 **Tool Interoperability** - Import/validate/export across enterprise tools
+
+**3 Test Scripts**: Bash (Linux/Mac) • Windows Batch • Python (cross-platform)
+
+**Quick Links**: [Scenarios Guide](./CLI_SCENARIOS_GUIDE.md) • [Execution Summary](./CLI_TEST_EXECUTION_SUMMARY.md) • [Run Tests](./test_cli_scenarios.py)
+
+---
+
 ## Project Overview
 
 This comprehensive Enterprise Architecture project implements a world-class architectural framework following **TOGAF 10 ADM** methodology, **ArchiMate 3.2** modeling standards, and **Saudi National Overall Reference Architecture (NORA)** compliance requirements. 
