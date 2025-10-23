@@ -7,9 +7,11 @@ import {
   LogOut, 
   User,
   Menu,
-  X
+  X,
+  Sparkles
 } from 'lucide-react'
 import { useState } from 'react'
+import Logo from './Logo'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -33,11 +35,11 @@ export default function Layout() {
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
-          <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white">
+          <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white shadow-xl">
             <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200">
               <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
                 <div className="flex flex-shrink-0 items-center px-4">
-                  <h1 className="text-2xl font-bold text-primary-600">ArchiAgents</h1>
+                  <Logo size="md" />
                 </div>
                 <nav className="mt-8 flex-1 space-y-1 bg-white px-2">
                   {navigation.map((item) => {
@@ -82,12 +84,21 @@ export default function Layout() {
 
       {/* Desktop sidebar */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
-        <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
+        <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white shadow-sm">
           <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-            <div className="flex flex-shrink-0 items-center px-4">
-              <h1 className="text-2xl font-bold text-primary-600">ArchiAgents</h1>
+            <div className="flex flex-shrink-0 items-center px-4 mb-2">
+              <Logo size="md" />
             </div>
-            <nav className="mt-8 flex-1 space-y-1 bg-white px-2">
+            
+            {/* AI Badge */}
+            <div className="mx-4 mb-4 p-2 bg-gradient-to-r from-violet-50 to-purple-50 border border-violet-200 rounded-lg">
+              <div className="flex items-center space-x-2">
+                <Sparkles className="h-4 w-4 text-violet-600" />
+                <span className="text-xs font-medium text-violet-900">AI-Powered Platform</span>
+              </div>
+            </div>
+            
+            <nav className="mt-2 flex-1 space-y-1 bg-white px-2">
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href
                 return (
@@ -147,9 +158,9 @@ export default function Layout() {
           </button>
           <div className="flex flex-1 justify-between px-4">
             <div className="flex flex-1 items-center">
-              <h1 className="text-xl font-bold text-primary-600">ArchiAgents</h1>
+              <Logo size="sm" />
             </div>
-            <div className="ml-4 flex items-center">
+            <div className="ml-4 flex items-center space-x-2">
               <button onClick={handleLogout} className="text-gray-400 hover:text-gray-600">
                 <LogOut className="h-5 w-5" />
               </button>

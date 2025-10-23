@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../stores/authStore'
 import { handleApiError } from '../../lib/api-client'
 import toast from 'react-hot-toast'
-import { LogIn, Mail, Lock } from 'lucide-react'
+import { Mail, Lock, Sparkles, Brain, Layers } from 'lucide-react'
 
 export default function LoginPage() {
   const navigate = useNavigate()
@@ -25,19 +25,36 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-blue-50 to-violet-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 rounded-xl mb-4">
-            <LogIn className="w-8 h-8 text-white" />
+          <div className="inline-flex items-center justify-center mb-6">
+            <img src="/logo-icon.svg" alt="ArchiAgents" className="h-16 w-16" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">ArchiAgents</h1>
-          <p className="text-gray-600">Enterprise Architecture Platform</p>
+          <div className="flex items-baseline justify-center space-x-1 mb-3">
+            <h1 className="text-4xl font-bold text-primary-600">Archi</h1>
+            <h1 className="text-4xl font-bold text-primary-700">Agents</h1>
+          </div>
+          <p className="text-gray-600 font-medium mb-2">Enterprise Architecture Platform</p>
+          <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
+            <span className="flex items-center">
+              <Sparkles className="h-4 w-4 mr-1 text-violet-500" />
+              AI-Powered
+            </span>
+            <span className="flex items-center">
+              <Layers className="h-4 w-4 mr-1 text-primary-500" />
+              TOGAF 10
+            </span>
+            <span className="flex items-center">
+              <Brain className="h-4 w-4 mr-1 text-violet-500" />
+              ArchiMate 3.2
+            </span>
+          </div>
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">Sign in to your account</h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">
