@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Bell, X, Check, Trash2, Filter } from 'lucide-react';
+import { Bell, X, Check, Trash2 } from 'lucide-react';
 import { apiClient } from '../lib/api-client';
 import { toast } from 'react-hot-toast';
 
