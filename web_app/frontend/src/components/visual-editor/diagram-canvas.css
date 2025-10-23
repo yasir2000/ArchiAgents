@@ -1,0 +1,78 @@
+/* GoJS Diagram Canvas Styles */
+.diagram-component {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+}
+
+/* Ensure the canvas takes full space */
+.diagram-component canvas {
+  outline: none;
+}
+
+/* Grid background */
+.diagram-with-grid {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Selection handles */
+.diagram-component .go-adornment {
+  cursor: move;
+}
+
+/* Tooltips */
+.diagram-tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+/* Context menu */
+.diagram-context-menu {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.diagram-context-menu-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.diagram-context-menu-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* Link hover */
+.diagram-component .go-link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Node hover */
+.diagram-component .go-node:hover {
+  cursor: move;
+}
+
+/* Resizing handles */
+.diagram-component .go-resize-handle {
+  fill: #6366f1;
+  stroke: #4f46e5;
+}
+
+/* Selection adornment */
+.diagram-component .go-selection-adornment {
+  stroke: #6366f1;
+  stroke-width: 2;
+}
