@@ -319,10 +319,40 @@ export default function DiagramCanvas({
     );
   };
 
-  // Load model data when it changes
+  // Parse model data for initial load
+  const getInitialData = () => {
+    if (!modelData) {
+      return { nodeDataArray: [], linkDataArray: [] };
+    }
+    
+    try {
+      // If modelData is a string, parse it
+      if (typeof modelData === 'string') {
+        return JSON.parse(modelData);
+      }
+      // If it's already an object with the right structure
+      if (modelData.nodeDataArray !== undefined) {
+        return modelData;
+      }
+      // Otherwise return empty
+      return { nodeDataArray: [], linkDataArray: [] };
+    } catch (error) {
+      console.error('Error parsing model data:', error);
+      return { nodeDataArray: [], linkDataArray: [] };
+    }
+  };
+
+  const initialData = getInitialData();
+
+  // Load model data when it changes (after initial load)
   useEffect(() => {
     if (diagram && modelData) {
-      diagram.model = go.Model.fromJson(modelData);
+      try {
+        const parsedData = typeof modelData === 'string' ? JSON.parse(modelData) : modelData;
+        diagram.model = go.Model.fromJson(parsedData);
+      } catch (error) {
+        console.error('Error loading model data:', error);
+      }
     }
   }, [diagram, modelData]);
 
@@ -342,8 +372,8 @@ export default function DiagramCanvas({
         ref={diagramRef}
         divClassName="diagram-component"
         initDiagram={initDiagram}
-        nodeDataArray={[]}
-        linkDataArray={[]}
+        nodeDataArray={initialData.nodeDataArray}
+        linkDataArray={initialData.linkDataArray}
       />
     </div>
   );
