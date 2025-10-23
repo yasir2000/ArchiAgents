@@ -88,6 +88,21 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'auth-storage',
       partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }),
+      // Force demo state on hydration
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.isAuthenticated = true
+          state.user = {
+            id: 1,
+            email: 'demo@test.com',
+            username: 'demo',
+            full_name: 'Demo User',
+            role: 'architect',
+            is_active: true,
+            created_at: new Date().toISOString()
+          }
+        }
+      }
     }
   )
 )
