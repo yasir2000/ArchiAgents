@@ -177,7 +177,7 @@ export default function DashboardPage() {
                   dataKey="count"
                   nameKey="type"
                 >
-                  {modelsByType.map((entry, index) => (
+                  {modelsByType.map((_entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
