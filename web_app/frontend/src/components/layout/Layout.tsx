@@ -8,21 +8,29 @@ import {
   User,
   Menu,
   X,
-  Sparkles
+  Sparkles,
+  Settings,
+  Users,
+  Search
 } from 'lucide-react'
 import { useState } from 'react'
 import Logo from './Logo'
+import { NotificationBellIcon } from '../NotificationCenter'
+import SearchComponent from '../SearchComponent'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Projects', href: '/projects', icon: FolderKanban },
   { name: 'Models', href: '/models', icon: FileBox },
+  { name: 'Settings', href: '/settings', icon: Settings },
+  { name: 'Team', href: '/team', icon: Users },
 ]
 
 export default function Layout() {
   const location = useLocation()
   const { user, logout } = useAuthStore()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
 
   const handleLogout = () => {
     logout()
@@ -161,6 +169,14 @@ export default function Layout() {
               <Logo size="sm" />
             </div>
             <div className="ml-4 flex items-center space-x-2">
+              <button 
+                onClick={() => setSearchOpen(true)}
+                className="text-gray-400 hover:text-gray-600"
+                title="Search"
+              >
+                <Search className="h-5 w-5" />
+              </button>
+              <NotificationBellIcon />
               <button onClick={handleLogout} className="text-gray-400 hover:text-gray-600">
                 <LogOut className="h-5 w-5" />
               </button>
@@ -173,6 +189,9 @@ export default function Layout() {
           <Outlet />
         </main>
       </div>
+
+      {/* Search Modal */}
+      <SearchComponent isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   )
 }

@@ -7,6 +7,8 @@ import ProjectsPage from './pages/ProjectsPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import ModelsPage from './pages/ModelsPage'
 import ModelEditorPage from './pages/ModelEditorPage'
+import SettingsPage from './pages/SettingsPage'
+import TeamManagementPage from './pages/TeamManagementPage'
 import Layout from './components/layout/Layout'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -34,6 +36,8 @@ function App() {
           <Route path="projects/:id" element={<ProjectDetailPage />} />
           <Route path="models" element={<ModelsPage />} />
           <Route path="models/:id/edit" element={<ModelEditorPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+          <Route path="team" element={<TeamManagementPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

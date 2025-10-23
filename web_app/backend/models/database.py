@@ -214,3 +214,45 @@ class ActivityLog(Base):
     
     # Relationships
     user = relationship("User")
+
+
+class NotificationType(str, enum.Enum):
+    """Notification types"""
+    INFO = "info"
+    SUCCESS = "success"
+    WARNING = "warning"
+    ERROR = "error"
+
+
+class Notification(Base):
+    """User notifications"""
+    __tablename__ = "notifications"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    type = Column(SQLEnum(NotificationType), default=NotificationType.INFO)
+    title = Column(String(255), nullable=False)
+    message = Column(Text, nullable=False)
+    read = Column(Boolean, default=False)
+    link = Column(String(500), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationships
+    user = relationship("User")
+
+
+class UserInvitation(Base):
+    """Pending user invitations"""
+    __tablename__ = "user_invitations"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String(255), unique=True, nullable=False)
+    role = Column(SQLEnum(UserRole), default=UserRole.VIEWER)
+    invited_by = Column(Integer, ForeignKey("users.id"), nullable=False)
+    token = Column(String(255), unique=True, nullable=False)
+    expires_at = Column(DateTime, nullable=False)
+    accepted = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationships
+    inviter = relationship("User")

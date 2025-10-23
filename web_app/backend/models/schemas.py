@@ -334,3 +334,143 @@ class ActivityLog(BaseModel):
 ProjectWithModels.model_rebuild()
 ArchitectureModelWithDetails.model_rebuild()
 CommentWithUser.model_rebuild()
+
+
+# Notification Schemas
+class NotificationType(str, Enum):
+    INFO = "info"
+    SUCCESS = "success"
+    WARNING = "warning"
+    ERROR = "error"
+
+
+class NotificationCreate(BaseModel):
+    user_id: int
+    type: NotificationType
+    title: str = Field(..., min_length=1, max_length=255)
+    message: str
+    link: Optional[str] = None
+
+
+class Notification(BaseModel):
+    id: int
+    user_id: int
+    type: NotificationType
+    title: str
+    message: str
+    read: bool
+    link: Optional[str] = None
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+class NotificationUpdate(BaseModel):
+    read: Optional[bool] = None
+
+
+# Password Change Schema
+class PasswordChangeRequest(BaseModel):
+    current_password: str = Field(..., min_length=8)
+    new_password: str = Field(..., min_length=8, max_length=72)
+    
+    @validator('new_password')
+    def passwords_must_differ(cls, v, values):
+        if 'current_password' in values and v == values['current_password']:
+            raise ValueError('New password must be different from current password')
+        return v
+
+
+# User Invitation Schemas
+class UserInviteRequest(BaseModel):
+    email: EmailStr
+    role: UserRole = UserRole.VIEWER
+
+
+class UserInvitation(BaseModel):
+    id: int
+    email: EmailStr
+    role: UserRole
+    invited_by: int
+    token: str
+    expires_at: datetime
+    accepted: bool
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+class AcceptInvitationRequest(BaseModel):
+    token: str
+    name: str = Field(..., min_length=1, max_length=255)
+    password: str = Field(..., min_length=8, max_length=72)
+
+
+# Model Import Schemas
+class ModelImportRequest(BaseModel):
+    project_id: int
+    name: str = Field(..., min_length=1, max_length=255)
+    format: str  # archi, ea, mermaid, gojs, text
+    description: Optional[str] = None
+
+
+class ModelImportResponse(BaseModel):
+    model_id: int
+    name: str
+    elements_imported: int
+    relationships_imported: int
+    warnings: List[str] = []
+    success: bool = True
+
+
+# User List Response
+class UserListItem(BaseModel):
+    id: int
+    email: EmailStr
+    name: str
+    role: UserRole
+    is_active: bool
+    created_at: datetime
+    last_login: Optional[datetime] = None
+    
+    class Config:
+        from_attributes = True
+
+
+class RoleUpdateRequest(BaseModel):
+    role: UserRole
+
+
+# Collaboration Enhanced Schemas
+class CollaborationParticipant(BaseModel):
+    user_id: int
+    name: str
+    email: str
+    status: str  # active, idle, disconnected
+    joined_at: datetime
+    cursor_position: Optional[Dict[str, Any]] = None
+
+
+class CollaborationActivity(BaseModel):
+    id: str
+    user_id: int
+    user_name: str
+    action: str
+    description: str
+    timestamp: datetime
+    element_id: Optional[str] = None
+
+
+class CollaborationParticipantsResponse(BaseModel):
+    model_id: int
+    session_id: int
+    participants: List[CollaborationParticipant]
+    total_count: int
+
+
+class CollaborationActivityResponse(BaseModel):
+    model_id: int
+    activities: List[CollaborationActivity]
+    total_count: int
