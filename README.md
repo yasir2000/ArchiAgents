@@ -1,6 +1,16 @@
-<img width="312" height="183" alt="image" src="https://github.com/user-attachments/assets/5f9eb2f5-3821-46c3-b984-d5dcc15f045a" />
+<div align="center">
+  <img src="./brand-assets/archiagents-logo-primary.svg" alt="ArchiAgents Logo" width="300" />
+  
+  # ArchiAgents
+  ### Enterprise Architecture Development Platform
+  
+  [![AI-Powered](https://img.shields.io/badge/AI-Powered-8b5cf6?style=flat-square)](./BRAND_GUIDELINES.md)
+  [![TOGAF 10](https://img.shields.io/badge/TOGAF-10-0284c7?style=flat-square)](./Phase-A-Architecture-Vision/)
+  [![ArchiMate 3.2](https://img.shields.io/badge/ArchiMate-3.2-0369a1?style=flat-square)](./ArchiMate-Models/)
+  [![NORA Compliant](https://img.shields.io/badge/NORA-Compliant-10b981?style=flat-square)](./NORA-Compliance/)
+</div>
 
-# ArchiAgents - Enterprise Architecture Development Platform
+---
 
 ## 🚀 **MAJOR UPDATE: Full-Stack Web Application Now Available!**
 
@@ -8,10 +18,26 @@
 
 - ✅ **Backend API**: 100% complete (30+ REST endpoints, WebSocket collaboration, AI integration)
 - ✅ **Frontend**: 60% complete (React + TypeScript, authentication, responsive layout)
+- ✅ **Branding**: Professional brand identity with logo, colors, typography system
 - 📝 **Visual Editor**: Design complete (GoJS integration with ArchiMate/BPMN/UML palettes)
 - 📝 **Real-Time Collaboration**: Multi-user editing with presence and cursor tracking
 
 **👉 See [WEB_PLATFORM_COMPLETE.md](WEB_PLATFORM_COMPLETE.md) for the complete quick start guide!**
+
+---
+
+## 🎨 NEW: Professional Branding
+
+ArchiAgents features a complete, enterprise-grade branding system:
+
+- 🎨 **Brand Guidelines**: Comprehensive 16,000+ word style guide
+- 🖼️ **Logo Suite**: 3 SVG variants (primary, icon, favicon)
+- 🌈 **Color System**: Professional palette with accessibility compliance
+- ✍️ **Typography**: Inter + JetBrains Mono font system
+- 🖥️ **Web Components**: Branded React components
+- 💻 **CLI Styling**: Rich terminal output with ASCII art
+
+**Quick Links**: [Brand Guidelines](./BRAND_GUIDELINES.md) • [Implementation Summary](./BRANDING_IMPLEMENTATION_SUMMARY.md) • [Quick Reference](./BRANDING_QUICK_REFERENCE.md)
 
 ---
 
