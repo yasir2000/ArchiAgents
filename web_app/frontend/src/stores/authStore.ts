@@ -16,8 +16,16 @@ interface AuthState {
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      user: null,
-      isAuthenticated: false,
+      user: {
+        id: 1,
+        email: 'demo@test.com',
+        username: 'demo',
+        full_name: 'Demo User',
+        role: 'architect',
+        is_active: true,
+        created_at: new Date().toISOString()
+      },
+      isAuthenticated: true, // Skip auth for testing
       isLoading: false,
 
       login: async (credentials) => {
