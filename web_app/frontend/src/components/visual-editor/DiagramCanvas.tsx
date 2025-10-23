@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as go from 'gojs';
 import { ReactDiagram } from 'gojs-react';
+import './diagram-canvas.css';
 
 interface DiagramCanvasProps {
   modelData?: any;

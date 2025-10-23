@@ -80,6 +80,14 @@ export default function VisualEditor({
     if (diagram) {
       setCanUndo(diagram.undoManager.canUndo());
       setCanRedo(diagram.undoManager.canRedo());
+      
+      // Update selected element
+      const selection = diagram.selection.first();
+      if (selection) {
+        setSelectedElement(selection.data);
+      } else {
+        setSelectedElement(null);
+      }
     }
   }, [getDiagram]);
 
